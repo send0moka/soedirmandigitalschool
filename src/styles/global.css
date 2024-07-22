@@ -5,7 +5,7 @@
 @layer base {
   @font-face {
     font-family: "Literata";
-    src: url("/fonts/literata-regular.ttf") format("ttf");
+    src: url("/fonts/literata-regular.woff") format("woff");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -13,10 +13,11 @@
   
   @font-face {
     font-family: "Sugo";
-    src: url("/fonts/Sugo-bold.ttf") format("ttf");
+    src: url("/fonts/sugo-bold.woff") format("woff");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
+    font-size: large;
   }
 }
 
@@ -36,8 +37,8 @@ html.dark {
 html,
 body {
   @apply h-full w-full antialiased;
-  @apply bg-white dark:bg-black;
-  @apply text-black/75 dark:text-white/75;
+  @apply bg-white;
+  @apply text-black/75;
 }
 
 body {
@@ -45,7 +46,7 @@ body {
 }
 
 main {
-  @apply flex flex-col flex-1 bg-white dark:bg-black;
+  @apply flex flex-col flex-1 bg-white;
 }
 
 header {
@@ -58,17 +59,17 @@ header:not(.scrolled) {
 }
 
 header.scrolled {
-  @apply bg-white/75 dark:bg-black/50;
-  @apply border-black/10 dark:border-white/25;
+  @apply bg-white/75;
+  @apply border-black/10;
   @apply backdrop-blur-sm saturate-200;
 }
 
 article {
-  @apply prose dark:prose-invert max-w-full pb-12;
+  @apply prose max-w-full pb-12;
 }
 
 .page-heading {
-  @apply font-semibold text-black dark:text-white;
+  @apply font-semibold text-black;
 }
 
 .blend {
