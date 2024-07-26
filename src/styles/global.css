@@ -104,7 +104,7 @@ header.scrolled #header-content {
 }
 
 .btn:after {
-  background-image: url(/texture.png);
+  background-image: url(/texture.webp);
   background-size: cover;
   border: 1px solid #252525;
   border-radius: inherit;
@@ -205,7 +205,7 @@ header.scrolled #header-content {
   z-index: -1;
 }
 .guide-btn[data-v-27e145af]:after {
-  background-image: url(/texture.png);
+  background-image: url(/texture.webp);
   background-size: cover;
   border: 1px solid #252525;
   z-index: -2;
