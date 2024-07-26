@@ -35,6 +35,9 @@ importers:
       fuse.js:
         specifier: ^7.0.0
         version: 7.0.0
+      postcss-nested:
+        specifier: ^6.2.0
+        version: 6.2.0(postcss@8.4.39)
       sharp:
         specifier: ^0.33.4
         version: 0.33.4

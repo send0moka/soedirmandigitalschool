@@ -6,55 +6,104 @@ import Container from "@components/Container.astro"
 import { LINKS, SITE } from "@const"
 ---
 
-<header id="header" class="fixed top-0 w-full h-16 z-50 ">
-  <Container size="md">
-    <div class="relative h-full w-full">
-      <div class="absolute left-0 top-1/2 -translate-y-1/2 flex gap-1 font-semibold">
-        <a href="/" class="flex items-center gap-1 hover:text-black transition-colors duration-300 ease-in-out">
-          <svg class="size-6 fill-current">
-            <use href="/brand.svg#brand"></use>
+<header
+  id="header"
+  class="fixed top-0 w-full h-16 md:h-24 z-50 transition-all duration-300"
+>
+  <Container size="2xl">
+    <div
+      class="relative h-full w-full mt-20 transition-all duration-300"
+      id="header-content"
+    >
+      <div class="absolute left-0 top-1/2 -translate-y-1/2 scale-75 md:scale-100">
+        <a
+          href="/"
+          class="flex gap-2 items-center group transition-colors duration-300"
+        >
+          <svg
+            class="size-14 opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+          >
+            <use href="/brand.svg#bird"></use>
           </svg>
-          <div class="font-display text-xl uppercase">
-            {SITE.TITLE}
+          <div class="uppercase leading-tight transition-colors duration-300">
+            <div
+              class="-mb-[2px] font-display text-2xl tracking-widest group-hover:text-hitam"
+            >
+              {SITE.TITLE}
+            </div>
+            <div
+              class="bg-current rounded-sm text-sm font-semibold tracking-wider w-fit px-2 py-1 group-hover:bg-hitam"
+            >
+              <span class="text-white/90 group-hover:text-white"
+                >{SITE.AUTHOR}</span
+              >
+            </div>
           </div>
         </a>
       </div>
 
-    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-      <nav class="hidden md:flex items-center justify-center text-sm gap-1">
-        {
-          LINKS.map((LINK) => (
-            <a href={LINK.HREF} class={cn("h-8 rounded-full px-3 text-current", "flex items-center justify-center", "transition-colors duration-300 ease-in-out", pathname === LINK.HREF || "/" + subpath?.[0] === LINK.HREF ? "bg-black text-white" : "hover:bg-black/5 hover:text-black")}>
-              {LINK.TEXT}
-            </a>
-          ))
-        }
-      </nav>
+      <div
+        class="buttons absolute right-0 top-1/2 -translate-y-1/2 flex gap-1 text-hitam"
+      >
+        <nav class="hidden lg:flex items-center justify-center gap-1">
+          {
+            LINKS.map((LINK) => (
+              <a
+                href={LINK.HREF}
+                class={cn(
+                  "h-8 rounded-full px-3",
+                  "flex items-center justify-center",
+                  "hover:underline transition-colors duration-300",
+                  pathname === LINK.HREF
+                )}
+              >
+                {LINK.TEXT}
+              </a>
+            ))
+          }
+        </nav>
+        <button
+          id="modal-signin"
+          aria-label={`Modal open and closed`}
+          class="btn whitespace-nowrap !hidden md:!flex"
+        >
+          <div class="btn__content">
+            <span class="-mt-1">Sign In to Bootcamp</span>
+            <svg class="btn__arrow h-5" width="25" height="15" fill="currentColor">
+              <use href="/ui.svg#arrow"></use>
+            </svg>
+          </div>
+        </button>
+        <button
+          type="button"
+          aria-label={`Question Jar`}
+          class="btn ml-4 question-jar-btn !hidden md:!flex"
+        >
+          <div class="btn__content size-14">
+            <img src="/q-mark.png" alt="Question Jar" class="w-[14px] h-auto ml-[3px] question-jar-icon" />
+          </div>
+        </button>
+        <button
+          id="header-drawer-button"
+          aria-label={`Toggle drawer open and closed`}
+          class={cn(
+            "flex md:hidden",
+            "size-9 rounded-full p-2 items-center justify-center",
+            "bg-transparent hover:bg-hitam/5 ",
+            "stroke-current hover:stroke-hitam",
+            "border border-hitam/10",
+            "transition-colors duration-300"
+          )}
+        >
+          <svg id="drawer-open" class="size-full">
+            <use href="/ui.svg#menu"></use>
+          </svg>
+          <svg id="drawer-close" class="size-full">
+            <use href="/ui.svg#x"></use>
+          </svg>
+        </button>
+      </div>
     </div>
-
-    <div class="buttons absolute right-0 top-1/2 -translate-y-1/2 flex gap-1">
-      <a href="/search" aria-label={`Search blog posts and projects on ${SITE.TITLE}`} class={cn("hidden md:flex", "size-9 rounded-full p-2 items-center justify-center", "bg-transparent hover:bg-black/5 ", "stroke-current hover:stroke-black", "border border-black/10", "transition-colors duration-300 ease-in-out", pathname === "/search" || "/" + subpath?.[0] === "/search" ? "pointer-events-none bg-black text-white" : "")}>
-        <svg class="size-full">
-          <use href="/ui.svg#search"></use>
-        </svg>
-      </a>
-
-      <a href="/rss.xml" target="_blank" aria-label={`Rss feed for ${SITE.TITLE}`} class={cn("hidden md:flex", "size-9 rounded-full p-2 items-center justify-center", "bg-transparent hover:bg-black/5 ", "stroke-current hover:stroke-black", "border border-black/10", "transition-colors duration-300 ease-in-out")}>
-        <svg class="size-full">
-          <use href="/ui.svg#rss"></use>
-        </svg>
-      </a>
-
-      <button id="header-drawer-button" aria-label={`Toggle drawer open and closed`} class={cn("flex md:hidden", "size-9 rounded-full p-2 items-center justify-center", "bg-transparent hover:bg-black/5 ", "stroke-current hover:stroke-black", "border border-black/10", "transition-colors duration-300 ease-in-out")}>
-        <svg id="drawer-open" class="size-full">
-          <use href="/ui.svg#menu"></use>
-        </svg>
-        <svg id="drawer-close" class="size-full">
-          <use href="/ui.svg#x"></use>
-        </svg>
-      </button>
-    </div>
-  </div>
   </Container>
 </header>
 

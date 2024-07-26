@@ -1,53 +1,62 @@
 import type { Site, Page, Links, Socials } from "@types"
 
-// Global
 export const SITE: Site = {
   TITLE: "Soedirman Digital School",
-  DESCRIPTION: "Welcome to Astro Sphere, a portfolio and blog for designers and developers.",
-  AUTHOR: "Mark Horn",
+  DESCRIPTION: "Soedirman Digital School adalah program pelatihan digital yang diselenggarakan oleh BEM Unsoed 2024. Program ini bertujuan untuk memberikan pengetahuan dan keterampilan digital kepada mahasiswa Unsoed.",
+  AUTHOR: "BEM Unsoed - 2024",
 }
 
-// Work Page
-export const WORK: Page = {
-  TITLE: "Work",
-  DESCRIPTION: "Places I have worked.",
+export const BESTSTUDENTS: Page = {
+  TITLE: "Best Students",
+  DESCRIPTION: "Peserta Terbaik Soedirman Digital School",
 }
 
-// Blog Page
-export const BLOG: Page = {
-  TITLE: "Blog",
-  DESCRIPTION: "Writing on topics I am passionate about.",
+export const AFTERMOVIE: Page = {
+  TITLE: "After Movie",
+  DESCRIPTION: "Video dokumentasi Soedirman Digital School",
 }
 
-// Projects Page 
-export const PROJECTS: Page = {
-  TITLE: "Projects",
-  DESCRIPTION: "Recent projects I have worked on.",
+export const ORGANIZERS: Page = {
+  TITLE: "Organizers",
+  DESCRIPTION: "Panitia Soedirman Digital School",
 }
 
-// Search Page
-export const SEARCH: Page = {
-  TITLE: "Search",
-  DESCRIPTION: "Search all posts and projects by keyword.",
+export const PARTNERS: Page = {
+  TITLE: "Partners",
+  DESCRIPTION: "Kerja Sama Soedirman Digital School",
 }
 
-// Links
+export const DATAANALYST: Page = {
+  TITLE: "Data Analyst",
+  DESCRIPTION: "Data Analyst Soedirman Digital School",
+}
+
+export const UIUX: Page = {
+  TITLE: "UI/UX",
+  DESCRIPTION: "UI/UX Soedirman Digital School",
+}
+
+export const WEBDEVELOPER: Page = {
+  TITLE: "Web Developer",
+  DESCRIPTION: "Web Developer Soedirman Digital School",
+}
+
 export const LINKS: Links = [
   { 
-    TEXT: "Home", 
-    HREF: "/", 
+    TEXT: "Best Students", 
+    HREF: "/best-students", 
   },
   { 
-    TEXT: "Work", 
-    HREF: "/work", 
+    TEXT: "After Movie", 
+    HREF: "/after-movie", 
   },
   { 
-    TEXT: "Blog", 
-    HREF: "/blog", 
+    TEXT: "Organizers", 
+    HREF: "/organizers", 
   },
   { 
-    TEXT: "Projects", 
-    HREF: "/projects", 
+    TEXT: "Partners", 
+    HREF: "/partners", 
   },
 ]
 

@@ -1,5 +1,4 @@
 ---
-import { getCollection } from "astro:content"
 import PageLayout from "@layouts/PageLayout.astro"
 import { SITE } from "@const"
 
@@ -28,40 +27,73 @@ const stack = [
 ---
 
 <PageLayout title="Home" description={SITE.DESCRIPTION}>
+  <div class="min-h-screen">
+    <!-- Content -->
+    <div class="relative z-10 container mx-auto px-4 py-16">
+      <section class="animate mb-16">
+        <h1 class="font-display text-4xl md:text-6xl text-hitam mb-4">Soedirman Digital School</h1>
+        <p class="text-xl text-ijo-tua mb-8">Welcome to our retro-inspired digital playground!</p>
+        <a href="#" class="bg-kuning text-hitam px-6 py-3 rounded-full hover:bg-oren transition duration-300">Explore Now</a>
+      </section>
 
-  <script is:inline src="/js/bg.js"></script>
-  
-  <!-- HERO -->
-  <section class="relative h-screen w-full">
-    <div id="planetcont" class='animate absolute inset-0 top-1/4 overflow-hidden'>
-      <div id="crescent" class='absolute top-0 left-1/2 -translate-x-1/2 w-[250vw] min-h-[100vh] aspect-square rounded-full p-[1px] bg-gradient-to-b from-black/25 from-0% to-transparent to-5%'>
-        <div id="planet" class='w-full h-full bg-white rounded-full p-[1px] overflow-hidden flex justify-center'>
-          <div id="blur" class='w-full h-20 rounded-full bg-neutral-900/25 blur-3xl'/>
-        </div>
-      </div>
-    </div>
-    <div class="animate absolute h-full w-full flex items-center justify-center">
-      <div class='relative w-full h-full flex items-center justify-center'>
-        <div class='p-5 text-center'>
-          <p class='animated text-lg md:text-xl lg:text-2xl font-semibold opacity-75'>
-            Hello, I am ...
-          </p>
-          <p class='font-display animated text-2xl md:text-3xl lg:text-6xl font-bold uppercase text-black'>
-            Soedirman Digital School
-          </p>
-          <p class='animated text-sm md:text-base lg:text-lg opacity-75'>
-            Currently designing products for humans.
-          </p>
-          <div id="ctaButtons" class='animated flex flex-wrap gap-4 justify-center mt-5'>
-            <a href='/blog' class='py-2 px-4 rounded truncate text-xs md:text-sm lg:text-base bg-black text-white hover:opacity-75 blend'>
-              Read my blog
+      <section class="animate mb-16">
+        <h2 class="font-display text-3xl text-hitam mb-4">Our Stack</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {stack.map((item) => (
+            <a href={item.href} class="bg-white bg-opacity-50 p-4 rounded-lg text-center hover:bg-opacity-75 transition duration-300">
+              <svg class="w-12 h-12 mx-auto mb-2">
+                <use href={`/stack.svg#${item.icon}`}></use>
+              </svg>
+              <span class="text-hitam">{item.text}</span>
             </a>
-            <a href='/work' class='py-2 px-4 truncate rounded text-xs md:text-sm lg:text-base border border-black/25 hover:bg-black/5 blend'>
-              View my work
-            </a>
-          </div>
+          ))}
         </div>
-      </div>
+      </section>
+
+      <section class="animate">
+        <h2 class="font-display text-3xl text-hitam mb-4">Latest Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {[1, 2].map((i) => (
+            <div class="bg-white bg-opacity-50 p-6 rounded-lg">
+              <h3 class="font-display text-xl text-hitam mb-2">Project {i}</h3>
+              <p class="text-ijo-tua mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <a href="#" class="text-bata hover:text-oren transition duration-300">Learn More &rarr;</a>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
-  </section>
+  </div>
 </PageLayout>
+
+<style>
+  .animate {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+
+  .animate.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  function animateOnScroll() {
+    const animatedElements = document.querySelectorAll('.animate');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    animatedElements.forEach(el => observer.observe(el));
+  }
+
+  document.addEventListener('DOMContentLoaded', animateOnScroll);
+  document.addEventListener('astro:after-swap', animateOnScroll);
+</script>

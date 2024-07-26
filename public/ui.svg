@@ -1,5 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg">
   <defs>
+    <!-- arrow -->
+    <symbol id="arrow" viewBox="0 0 25.742 15.241">
+      <path d="M0.031 6.811v1.584h18.233c1.887 0 3.17-0.447 4.95-0.447v0.103c-3.561 1.79-5.057 3.788-6.267 5.647l1.388 1.274c1.781-3.03 3.81-5.268 7.407-6.956v-0.86c-3.596-1.688-5.626-3.891-7.407-6.921l-1.388 1.24c1.21 1.893 2.706 3.89 6.267 5.68v0.104c-1.78 0-3.063-0.448-4.95-0.448H0.031Z"/>
+    </symbol>
+
     <!-- menu -->
     <symbol id="menu" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
       <path d="M3 12h18"/>
