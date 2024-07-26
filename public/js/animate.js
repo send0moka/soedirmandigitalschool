@@ -1,12 +1,13 @@
-function animate() {
-  const animateElements = document.querySelectorAll('.animate')
-
-  animateElements.forEach((element, index) => {
-    setTimeout(() => {
-      element.classList.add('show')
-    }, index * 150)
-  });
+function animateElement(element, delay) {
+  setTimeout(() => {
+    requestAnimationFrame(() => {
+      element.classList.add('show');
+    });
+  }, delay);
 }
 
-document.addEventListener("DOMContentLoaded", animate)
-document.addEventListener("astro:after-swap", animate)
+function animate() {
+  document.querySelectorAll('.animate').forEach((element, index) => {
+    animateElement(element, index * 150);
+  });
+}
