@@ -34,7 +34,7 @@ body {
 
 body {
   @apply relative flex flex-col bg-ijo-muda;
-  background-image: url("/noise.png");
+  background-image: url("/noise.webp");
   background-repeat: repeat;
   background-size: 500px;
 }
