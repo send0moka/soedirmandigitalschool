@@ -4,19 +4,19 @@ import { LINKS } from "@const"
 const { pathname } = Astro.url
 ---
 
-<div class="buttons absolute right-0 top-1/2 -translate-y-1/2 flex gap-1 font-semibold text-hitam">
-  <nav class="hidden lg:flex items-center justify-center gap-1">
+<div class="buttons absolute right-0 top-1/2 -translate-y-1/2 flex gap-1 font-semibold text-hitam text-lg">
+  <nav class="hidden lg:flex items-center justify-center gap-1 mt-2">
     {LINKS.map((LINK) => (
       <a
         href={LINK.HREF}
         class={cn(
           "h-8 rounded-full px-3",
           "flex items-center justify-center opacity-80",
-          "hover:underline-animate hover:opacity-100 transition-all duration-300",
+          "hover:opacity-100 transition-all duration-300",
           pathname === LINK.HREF && "underline-active"
         )}
       >
-        {LINK.TEXT}
+        <span class="hover:underline-animate">{LINK.TEXT}</span>
       </a>
     ))}
   </nav>
@@ -29,28 +29,27 @@ const { pathname } = Astro.url
     </div>
   </button>
   <button type="button" aria-label="Question Jar" class="btn ml-4 question-jar-btn !hidden md:!flex opacity-80 hover:opacity-100 transition-opacity duration-500">
-    <div class="btn__content size-14">
-      <img src="/q-mark.webp" alt="Question Jar" class="w-[14px] h-auto ml-[3px] question-jar-icon" />
+    <div class="btn__content">
+      <img src="/q-mark.webp" alt="Question Jar" class="w-[10px] h-auto ml-[3px] question-jar-icon" />
     </div>
   </button>
   <button
+    type="button"
     id="header-drawer-button"
     aria-label="Toggle drawer open and closed"
     class={cn(
-      "flex md:hidden",
-      "size-9 rounded-full p-2 items-center justify-center",
-      "bg-transparent hover:bg-hitam/5",
-      "stroke-current hover:stroke-hitam",
-      "border border-hitam/10",
-      "transition-colors duration-300"
+      "flex md:hidden scale-75",
+      "btn ml-4 question-jar-btn opacity-80 hover:opacity-100 transition-opacity duration-500"
     )}
   >
-    <svg id="drawer-open" class="size-full">
-      <use href="/ui.svg#menu"></use>
-    </svg>
-    <svg id="drawer-close" class="size-full">
-      <use href="/ui.svg#x"></use>
-    </svg>
+    <div class="btn__content">
+      <svg id="drawer-open" class="w-6 h-6 stroke-current">
+        <use href="/ui.svg#menu"></use>
+      </svg>
+      <svg id="drawer-close" class="w-6 h-6 stroke-current">
+        <use href="/ui.svg#x"></use>
+      </svg>
+    </div>
   </button>
 </div>
 

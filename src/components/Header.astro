@@ -8,7 +8,9 @@ import HeaderNav from "@components/HeaderNav.astro"
   <div class="animate">
     <Container size="2xl">
       <div class="relative h-full w-full transition-all duration-300" id="header-content">
-        <LogoText />
+        <div class="absolute left-0 top-1/2 -translate-y-1/2">
+          <LogoText />
+        </div>
         <HeaderNav />
       </div>
     </Container>
