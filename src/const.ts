@@ -1,8 +1,8 @@
-import type { Site, Page, Links, Socials } from "@types"
+import type { Site, Page, Links, Socials, Courses } from "@types"
 
 export const SITE: Site = {
   TITLE: "Soedirman Digital School",
-  DESCRIPTION: "Soedirman Digital School adalah program pelatihan digital yang diselenggarakan oleh BEM Unsoed 2024. Program ini bertujuan untuk memberikan pengetahuan dan keterampilan digital kepada mahasiswa Unsoed.",
+  DESCRIPTION: "Situs ini dibawah naungan dari Kementerian Koordinanator Bidang Riset dan Media - Badan Eksekutif Mahasiswa Universitas Jenderal Soedirman Tahun 2024 - Kabinet Bahtera Karsa.",
   AUTHOR: "BEM Unsoed - 2024",
 }
 
@@ -60,31 +60,46 @@ export const LINKS: Links = [
   },
 ]
 
-// Socials
+export const COURSES: Courses = [
+  { 
+    TEXT: "Data Analyst", 
+    HREF: "/data-analyst",
+  },
+  { 
+    TEXT: "UI/UX",
+    HREF: "/ui-ux",
+  },
+  { 
+    TEXT: "Web Developer",
+    HREF: "/web-developer",
+  },
+]
+
 export const SOCIALS: Socials = [
   { 
     NAME: "Email",
     ICON: "email", 
-    TEXT: "markhorn.dev@gmail.com",
-    HREF: "mailto:markhorn.dev@gmail.com",
+    TEXT: "soedirmamdigitalschool@gmail.com",
+    HREF: "mailto:soedirmamdigitalschool@gmail.com",
   },
   { 
-    NAME: "Github",
-    ICON: "github",
-    TEXT: "markhorn-dev",
-    HREF: "https://github.com/markhorn-dev/astro-sphere"
+    NAME: "Instagram",
+    ICON: "instagram",
+    TEXT: "soedirmandigitalschool",
+    HREF: "https://instagram.com/soedirmandigitalschool",
   },
   { 
     NAME: "LinkedIn",
     ICON: "linkedin",
-    TEXT: "markhorn-dev",
-    HREF: "https://www.linkedin.com/in/markhorn-dev/",
+    TEXT: "soedirmandigitalschool",
+    HREF: "https://linkedin.com/in/soedirmandigitalschool/",
   },
   { 
-    NAME: "Twitter",
-    ICON: "twitter-x",
-    TEXT: "markhorn_dev",
-    HREF: "https://twitter.com/markhorn_dev",
+    NAME: "WhatsApp",
+    ICON: "whatsapp",
+    TEXT: "6281226769494",
+    HREF: "https://wa.me/6281226769494",
   },
 ]
+
 

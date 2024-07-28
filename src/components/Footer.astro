@@ -1,137 +1,70 @@
 ---
+import { cn } from "@lib/utils"
 import Container from "@components/Container.astro"
-import { SITE, SOCIALS } from "@const"
+import { SITE, SOCIALS, LINKS, COURSES } from "@const"
+import LogoText from "@components/LogoText.astro"
+const { pathname } = Astro.url
 ---
-
-<footer class="relative bg-footer border-t border-hitam">
-  <section class="py-5">
-    <Container size="md">
-      <div class="flex items-center justify-center sm:justify-end">
-        <button
-          id="back-to-top"
-          aria-label="Back to top of page"
-          class="group flex w-fit p-1.5 gap-1.5 text-sm items-center border rounded hover:bg-black/5 border-black/15 transition-colors duration-300 ease-in-out"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="stroke-current group-hover:stroke-black rotate-90"
-          >
-            <line
-              x1="19"
-              y1="12"
-              x2="5"
-              y2="12"
-              class="scale-x-0 group-hover:scale-x-100 translate-x-3 group-hover:translate-x-0 transition-all duration-300 ease-in-out"
-            ></line>
-            <polyline
-              points="12 19 5 12 12 5"
-              class="translate-x-1 group-hover:translate-x-0 transition-all duration-300 ease-in-out"
-            ></polyline>
-          </svg>
-          <div
-            class="w-full group-hover:text-black transition-colors duration-300 ease-in-out"
-          >
-            Back to top
-          </div>
-        </button>
+      
+<footer class="relative bg-ijo-tua border-t border-hitam text-white text-lg py-10">
+  <Container size="2xl">
+    <div class="flex flex-col sm:flex-row justify-center sm:justify-between gap-8">
+      <div class="sm:w-1/3">
+        <LogoText isDark={true} />
+        <p class="text-justify opacity-85 mt-4">{SITE.DESCRIPTION}</p>
       </div>
-    </Container>
-  </section>
-  <section
-    class="py-5 overflow-hidden whitespace-nowrap border-t border-black/10"
-  >
-    <Container size="md">
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div class="flex flex-col items-center sm:items-start">
-          <a
-            href="/"
-            class="flex gap-1 w-fit font-semibold text-current hover:text-black transition-colors duration-300 ease-in-out"
-          >
-            <svg class="size-6 fill-current">
-              <use href="/brand.svg#brand"></use>
-            </svg>
-            {SITE.TITLE}
-          </a>
-        </div>
-        <div class="flex gap-2 justify-center sm:justify-end items-center">
-          <span class="relative flex h-3 w-3">
-            <span
-              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-300"
-            ></span>
-            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"
-            ></span>
-          </span>
-          All systems normal
-        </div>
-      </div>
-    </Container>
-  </section>
-  <section
-    class="py-5 overflow-hidden whitespace-nowrap border-t border-black/10"
-  >
-    <Container size="md">
-      <div class="h-full grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div
-          class="order-2 sm:order-1 flex flex-col items-center justify-center sm:items-start"
-        >
-          <div class="legal">
+      <nav class="flex flex-col space-y-2">
+        <b class="mb-2">Links</b>
+        {
+          LINKS.map((LINK) => (
             <a
-              href="/legal/terms"
-              class="text-current hover:text-black transition-colors duration-300 ease-in-out"
+              href={LINK.HREF}
+              class={cn(
+                "opacity-85 hover:opacity-100 transition-all duration-300",
+                pathname === LINK.HREF && "underline-active"
+              )}
             >
-              Terms
-            </a> |
-            <a
-              href="/legal/privacy"
-              class="text-current hover:text-black transition-colors duration-300 ease-in-out"
-            >
-              Privacy
+              <span class="hover:underline-animate">{LINK.TEXT}</span>
             </a>
-          </div>
-          <div class="text-sm mt-2">&copy; 2024 | All rights reserved</div>
-        </div>
-        <div class="order-1 sm:order-2 flex justify-center sm:justify-end">
-          <div class="flex flex-wrap gap-1 items-center justify-center">
-            {
-              SOCIALS.map((SOCIAL) => (
-                <a
-                  href={SOCIAL.HREF}
-                  target="_blank"
-                  aria-label={`${SITE.TITLE} on ${SOCIAL.NAME}`}
-                  class="group size-10 rounded-full p-2 items-center justify-center hover:bg-black/5 blend"
-                >
-                  <svg class="size-full fill-current group-hover:fill-black blend">
-                    <use href={`/social.svg#${SOCIAL.ICON}`} />
-                  </svg>
-                </a>
-              ))
-            }
-          </div>
+          ))
+        }
+      </nav>
+      <nav class="flex flex-col space-y-2">
+        <b class="mb-2">Courses</b>
+        {
+          COURSES.map((COURSE) => (
+            <a
+              href={COURSE.HREF}
+              class={cn(
+                "opacity-85 hover:opacity-100 transition-all duration-300",
+                pathname === COURSE.HREF && "underline-active"
+              )}
+            >
+              <span class="hover:underline-animate">{COURSE.TEXT}</span>
+            </a>
+          ))
+        }
+      </nav>
+      <div>
+        <b class="mb-2 block">Follow Us</b>
+        <div class="flex gap-4">
+          {
+            SOCIALS.map((SOCIAL) => (
+              <a
+                href={SOCIAL.HREF}
+                target="_blank"
+                aria-label={`${SITE.TITLE} on ${SOCIAL.NAME}`}
+                class="group size-12 rounded-full p-2 items-center justify-center hover:bg-white/5 blend"
+              >
+                <svg class="size-full fill-white/70 group-hover:fill-white blend">
+                  <use href={`/social.svg#${SOCIAL.ICON}`} />
+                </svg>
+              </a>
+            ))
+          }
         </div>
       </div>
-    </Container>
-  </section>
+    </div>
+    <p class="text-center mt-10">&copy; {new Date().getFullYear()} Soedirman Digital School. All rights reserved.</p>
+  </Container>
 </footer>
-
-<script is:inline>
-  function goBackToTop(event) {
-    event.preventDefault()
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    })
-  }
-  function inintializeBackToTop() {
-    const backToTop = document.getElementById("back-to-top")
-    backToTop?.addEventListener("click", goBackToTop)
-  }
-  document.addEventListener("astro:after-swap", inintializeBackToTop)
-  inintializeBackToTop()
-</script>

@@ -12,6 +12,11 @@ export type Links = {
   HREF: string
 }[]
 
+export type Courses = {
+  TEXT: string
+  HREF: string
+}[]
+
 export type Socials = {
   NAME: string
   ICON: string
