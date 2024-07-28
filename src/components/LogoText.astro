@@ -1,0 +1,19 @@
+---
+import { SITE } from "@const"
+---
+
+<div class="absolute left-0 top-1/2 -translate-y-1/2">
+  <a href="/" class="flex gap-2 items-center group transition-all duration-500">
+    <svg class="size-10 md:size-14 opacity-90 group-hover:opacity-100 transition-all duration-500">
+      <use href="/brand.svg#bird"></use>
+    </svg>
+    <div class="uppercase leading-tight transition-all duration-500">
+      <div class="-mb-[2px] font-display text-lg md:text-2xl tracking-widest group-hover:text-hitam transition-colors duration-500">
+        {SITE.TITLE}
+      </div>
+      <div class="bg-current rounded-sm text-xs md:text-sm font-semibold tracking-wider w-fit px-1 py-[1px] md:px-2 md:py-1 group-hover:bg-hitam transition-all duration-700">
+        <span class="text-white/90 group-hover:text-white transition-colors duration-700">{SITE.AUTHOR}</span>
+      </div>
+    </div>
+  </a>
+</div>

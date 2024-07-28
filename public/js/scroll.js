@@ -11,8 +11,5 @@ function onScroll() {
     headerContent.classList.add("mt-5")
   }
 }
-
 document.addEventListener("scroll", onScroll)
-
-// Panggil onScroll saat halaman dimuat untuk mengatur status awal
 document.addEventListener("DOMContentLoaded", onScroll)

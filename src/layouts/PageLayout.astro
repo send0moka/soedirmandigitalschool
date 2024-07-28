@@ -4,7 +4,6 @@ import BaseHead from "@components/BaseHead.astro"
 import Header from "@components/Header.astro"
 import Footer from "@components/Footer.astro"
 import Drawer from "@components/Drawer.astro"
-import Guide from "@components/Guide.astro"
 import { SITE } from "@const"
 const { title, description } = Astro.props
 ---
@@ -15,13 +14,13 @@ const { title, description } = Astro.props
     <BaseHead title={`${title} | ${SITE.TITLE}`} description={description} />
   </head>
   <body>
+    <div class="noise"></div>
     <Header />
     <Drawer />
     <main class="transition-margin duration-300 ease-in-out mt-20">
       <slot />
     </main>
     <Footer />
-    <Guide />
     <script is:inline src="/js/scroll.js"></script>
   </body>
 </html>

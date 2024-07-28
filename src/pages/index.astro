@@ -1,7 +1,6 @@
 ---
 import PageLayout from "@layouts/PageLayout.astro"
 import { SITE } from "@const"
-
 const stack = [
   { 
     text: "Astro", 
@@ -28,14 +27,12 @@ const stack = [
 
 <PageLayout title="Home" description={SITE.DESCRIPTION}>
   <div class="min-h-screen">
-    <!-- Content -->
     <div class="relative z-10 container mx-auto px-4 py-16">
       <section class="animate mb-16">
         <h1 class="font-display text-4xl md:text-6xl text-hitam mb-4">Soedirman Digital School</h1>
         <p class="text-xl text-ijo-tua mb-8">Welcome to our retro-inspired digital playground!</p>
-        <a href="#" class="bg-kuning text-hitam px-6 py-3 rounded-full hover:bg-oren transition duration-300">Explore Now</a>
+        <a href="#course" class="bg-kuning text-hitam px-6 py-3 rounded-full hover:bg-oren transition duration-300">Explore Now</a>
       </section>
-
       <section class="animate mb-16">
         <h2 class="font-display text-3xl text-hitam mb-4">Our Stack</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -49,7 +46,6 @@ const stack = [
           ))}
         </div>
       </section>
-
       <section class="animate">
         <h2 class="font-display text-3xl text-hitam mb-4">Latest Projects</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -57,7 +53,7 @@ const stack = [
             <div class="bg-white bg-opacity-50 p-6 rounded-lg">
               <h3 class="font-display text-xl text-hitam mb-2">Project {i}</h3>
               <p class="text-ijo-tua mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              <a href="#" class="text-bata hover:text-oren transition duration-300">Learn More &rarr;</a>
+              <a href="test" class="text-bata hover:text-oren transition duration-300">Learn More &rarr;</a>
             </div>
           ))}
         </div>
@@ -72,7 +68,6 @@ const stack = [
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   }
-
   .animate.show {
     opacity: 1;
     transform: translateY(0);
@@ -82,7 +77,6 @@ const stack = [
 <script>
   function animateOnScroll() {
     const animatedElements = document.querySelectorAll('.animate');
-    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -90,10 +84,8 @@ const stack = [
         }
       });
     }, { threshold: 0.1 });
-
     animatedElements.forEach(el => observer.observe(el));
   }
-
   document.addEventListener('DOMContentLoaded', animateOnScroll);
   document.addEventListener('astro:after-swap', animateOnScroll);
 </script>
