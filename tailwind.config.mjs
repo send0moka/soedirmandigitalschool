@@ -16,7 +16,8 @@ export default {
       },
       fontFamily: {
         "sans": ["Literata", ...defaultTheme.fontFamily.sans],
-        "display": ["Sugo", ...defaultTheme.fontFamily.sans],
+        "display": ["Sugo Bold", ...defaultTheme.fontFamily.sans],
+        "body": ["Sugo Regular", ...defaultTheme.fontFamily.sans],
       },
       typography: {
         DEFAULT: {

@@ -28,10 +28,21 @@ const stack = [
 <PageLayout title="Home" description={SITE.DESCRIPTION}>
   <div class="min-h-screen">
     <div class="relative z-10 container mx-auto px-4 py-16">
-      <section class="animate mb-16">
-        <h1 class="font-display text-4xl md:text-6xl text-hitam mb-4">Soedirman Digital School</h1>
-        <p class="text-xl text-ijo-tua mb-8">Welcome to our retro-inspired digital playground!</p>
-        <a href="#course" class="bg-kuning text-hitam px-6 py-3 rounded-full hover:bg-oren transition duration-300">Explore Now</a>
+      <section class="animate mb-16 flex flex-col justify-center items-center">
+        <h1 class="hidden 2xl:block font-display text-center text-[10rem] leading-[1.15] text-balance text-rainbow mb-14 wave-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tingkatkan Skill&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Digital Bersama SDS!</h1>
+        <h1 class="2xl:hidden xl:block scale-95 md:scale-100 -translate-x-3 md:translate-x-0 font-display text-center text-6xl md:text-[5.5rem] leading-[1.15] text-rainbow mb-10 wave-text">Tingkatkan Skill Digital Bersama SDS!</h1>
+        <p class="text-xl lg:text-3xl text-balance text-center lg:w-2/3 text-ijo-tua mb-8">Investasikan waktumu dalam pembelajaran teknologi berkualitas dan raih peluang karir yang tak terbatas di era digital.</p>
+        <div class="flex items-center justify-center gap-10">
+          <a href="#courses" class="btn">
+            <div class="btn__content !h-16 !px-8">
+              <span class="-mt-1 font-semibold text-2xl">Daftar Sekarang</span>
+              <svg class="btn__arrow h-5 opacity-90 stroke-current bold-stroke" width="25" height="15" fill="currentColor">
+                <use href="/ui.svg#arrow"></use>
+              </svg>
+            </div>
+          </a>
+          <a href="/about" class="bg-bata text-white px-6 py-3 rounded-lg text-lg hover:bg-bata-dark transition duration-300">Tentang Kami</a>
+        </div>
       </section>
       <section class="animate mb-16">
         <h2 class="font-display text-3xl text-hitam mb-4">Our Stack</h2>
@@ -88,4 +99,21 @@ const stack = [
   }
   document.addEventListener('DOMContentLoaded', animateOnScroll);
   document.addEventListener('astro:after-swap', animateOnScroll);
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const texts = document.getElementsByClassName('wave-text');
+  Array.from(texts).forEach(text => {
+    if (text && text.textContent) {
+      text.innerHTML = text.textContent.replace(/\S/g, "<span class='wave-letter'>$&</span>");
+      const letters = text.querySelectorAll('.wave-letter');
+      letters.forEach((letter, index) => {
+        if (letter instanceof HTMLElement) {
+          letter.style.animationDelay = `${index * 0.1}s`;
+        }
+      });
+    }
+  });
+});
 </script>
