@@ -38,7 +38,6 @@ html {
 html,
 body {
   @apply h-full w-full antialiased;
-  @apply text-hitam/75;
 }
 
 body {
@@ -58,44 +57,15 @@ body {
   pointer-events: none;
 }
 
+.bg-retro {
+  background-image: url(/bg.webp);
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+}
+
 main {
   @apply flex flex-col flex-1;
-}
-
-header {
-  @apply border-b;
-  @apply transition-all duration-300 ease-in-out;
-}
-
-header:not(.scrolled) {
-  @apply bg-transparent border-transparent;
-}
-
-header.scrolled {
-  @apply border-hitam;
-  @apply bg-ijo-muda;
-}
-
-header #header-content {
-  @apply transition-all duration-300 ease-in-out;
-}
-
-header:not(.scrolled) #header-content {
-  @apply mt-12;
-}
-
-header.scrolled #header-content {
-  @apply mt-8;
-}
-
-@media (min-width: 768px) {
-  header:not(.scrolled) #header-content {
-    @apply mt-16;
-  }
-
-  header.scrolled #header-content {
-    @apply mt-12;
-  }
 }
 
 .hover\:underline-animate {
@@ -153,7 +123,7 @@ header.scrolled #header-content {
 }
 
 .btn:after {
-  background-image: url(/texture.webp);
+  background-color: #252525;
   background-size: cover;
   border: 1px solid #252525;
   border-radius: inherit;
@@ -251,6 +221,13 @@ article img {
   margin: 0 auto;
 }
 
+.gradient-text {
+  background-image: linear-gradient(to bottom, #F9DB02, #FB7F00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 .text-rainbow {
   color: #fcedd8;
   text-shadow: 5px 5px 5px #252525, 
@@ -282,4 +259,15 @@ article img {
 
 .thin-stroke {
   stroke-width: 1px;
+}
+
+.text-stroke {
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: #252525;
+}
+
+@media (min-width: 768px) {
+  .text-stroke {
+    -webkit-text-stroke-width: 1.5px;
+  }
 }

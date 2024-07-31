@@ -5,7 +5,7 @@ const { pathname } = Astro.url
 ---
 
 <div class="buttons absolute right-0 top-1/2 -translate-y-1/2 flex gap-1 font-semibold text-hitam text-lg">
-  <nav class="hidden lg:flex items-center justify-center gap-1 mt-2">
+  <nav class="hidden xl:flex items-center justify-center gap-1 mt-2">
     {LINKS.map((LINK) => (
       <a
         href={LINK.HREF}
@@ -20,7 +20,7 @@ const { pathname } = Astro.url
       </a>
     ))}
   </nav>
-  <button id="modal-signin" aria-label="Modal open and closed" class="btn whitespace-nowrap !hidden md:!flex opacity-80 hover:opacity-100 transition-opacity duration-500">
+  <button id="modal-signin" aria-label="Modal open and closed" class="btn whitespace-nowrap !hidden xl:!flex opacity-80 hover:opacity-100 transition-opacity duration-500">
     <div class="btn__content">
       <span class="-mt-1">Sign In to Bootcamp</span>
       <svg class="btn__arrow h-5 opacity-90 stroke-current thin-stroke" width="25" height="15" fill="currentColor">
@@ -28,7 +28,7 @@ const { pathname } = Astro.url
       </svg>
     </div>
   </button>
-  <button type="button" aria-label="Question Jar" class="btn ml-4 question-jar-btn !hidden md:!flex opacity-80 hover:opacity-100 transition-opacity duration-500">
+  <button type="button" aria-label="Question Jar" class="btn ml-4 question-jar-btn !hidden xl:!flex opacity-80 hover:opacity-100 transition-opacity duration-500">
     <div class="btn__content">
       <img src="/q-mark.webp" alt="Question Jar" class="w-[10px] h-auto ml-[3px] question-jar-icon" />
     </div>
@@ -38,7 +38,7 @@ const { pathname } = Astro.url
     id="header-drawer-button"
     aria-label="Toggle drawer open and closed"
     class={cn(
-      "flex md:hidden scale-75",
+      "flex xl:hidden scale-75 translate-x-4",
       "btn ml-4 question-jar-btn opacity-80 hover:opacity-100 transition-opacity duration-500"
     )}
   >
