@@ -4,15 +4,22 @@ import LogoText from "@components/LogoText.astro"
 import HeaderNav from "@components/HeaderNav.astro"
 ---
 
-<header id="header" class="fixed top-0 w-full h-16 md:h-24 z-50 transition-all duration-300">
+<header
+  id="header"
+  class="fixed top-0 w-full py-4 z-50 transition-all duration-300"
+>
   <div class="animate">
     <Container size="2xl">
-      <div class="relative h-full w-full transition-all duration-300" id="header-content">
-        <div class="absolute left-0 top-1/2 -translate-y-1/2">
+      <div class="bg-[#B01F1A] p-3 rounded-3xl border border-hitam">
+      <div class="bg-[#EE9B00] p-3 rounded-xl border border-hitam">
+      <div class="bg-[#FEEDAA] pl-2 py-3 pr-5 rounded-sm border border-hitam">
+        <div class="relative transition-all duration-300">
           <LogoText />
+          <HeaderNav />
         </div>
-        <HeaderNav />
       </div>
+    </div>
+    </div>
     </Container>
   </div>
 </header>

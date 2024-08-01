@@ -26,38 +26,33 @@ const stack = [
 ---
 
 <PageLayout title="Home" description={SITE.DESCRIPTION}>
-  <div class="min-h-screen">
-    <div class="relative z-10 container mx-auto px-4 py-16">
-      <section class="animate mb-16">
-        <h1 class="font-display text-4xl md:text-6xl text-hitam mb-4">Soedirman Digital School</h1>
-        <p class="text-xl text-ijo-tua mb-8">Welcome to our retro-inspired digital playground!</p>
-        <a href="#course" class="bg-kuning text-hitam px-6 py-3 rounded-full hover:bg-oren transition duration-300">Explore Now</a>
-      </section>
-      <section class="animate mb-16">
-        <h2 class="font-display text-3xl text-hitam mb-4">Our Stack</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {stack.map((item) => (
-            <a href={item.href} class="bg-white bg-opacity-50 p-4 rounded-lg text-center hover:bg-opacity-75 transition duration-300">
-              <svg class="w-12 h-12 mx-auto mb-2">
-                <use href={`/stack.svg#${item.icon}`}></use>
+  <div class="min-h-screen bg-retro">
+    <div class="relative z-10 container mx-auto mt-28 xs:mt-48 lg:mt-36 px-4 py-16">
+      <section class="animate flex flex-col justify-center items-center">
+        <h1 class="font-display text-center -translate-x-3 xs:translate-x-0 text-6xl xs:text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] mb-6 lg:mb-0 lg:leading-[1.15] text-rainbow wave-text">Tingkatkan Skill</h1>
+        <h1 class="font-display text-center -translate-x-3 xs:translate-x-0 text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] lg:leading-[1.15] text-rainbow mb-10 xs:mb-14 wave-text">Digital Bersama SDS!</h1>
+        <p class="text-lg sm:text-2xl md:text-3xl bg-ijo-muda lg:bg-transparent text-balance text-center lg:w-2/3 text-white font-bold tracking-wide mb-2 xs:mb-8 py-4 lg:py-0 rounded-3xl border-2 border-hitam lg:border-0 text-stroke">Investasikan waktumu dalam pembelajaran teknologi berkualitas dan raih peluang karir yang tak terbatas di era digital.</p>
+        <div class="flex flex-col xs:flex-row items-center justify-center gap-10">
+          <a href="#courses" class="btn">
+            <div class="btn__content !h-16 !px-8">
+              <span class="-mt-1 font-semibold text-2xl">Daftar Sekarang</span>
+              <svg class="btn__arrow h-5 opacity-90 stroke-current bold-stroke" width="25" height="15" fill="currentColor">
+                <use href="/ui.svg#arrow"></use>
               </svg>
-              <span class="text-hitam">{item.text}</span>
-            </a>
-          ))}
-        </div>
-      </section>
-      <section class="animate">
-        <h2 class="font-display text-3xl text-hitam mb-4">Latest Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {[1, 2].map((i) => (
-            <div class="bg-white bg-opacity-50 p-6 rounded-lg">
-              <h3 class="font-display text-xl text-hitam mb-2">Project {i}</h3>
-              <p class="text-ijo-tua mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              <a href="test" class="text-bata hover:text-oren transition duration-300">Learn More &rarr;</a>
             </div>
-          ))}
+          </a>
+          <a href="/about" class="bg-bata text-white px-6 py-3 rounded-lg text-lg hover:bg-bata-dark transition duration-300">Tentang Kami</a>
         </div>
       </section>
+    </div>
+  </div>
+  <div class="min-h-screen">
+    <div class="flex overflow-hidden justify-center shadow-lg">
+      <img src="chess.webp" alt="chess" class="h-20">
+      <img src="chess.webp" alt="chess" class="h-20 -scale-y-100">
+      <img src="chess.webp" alt="chess" class="h-20">
+      <img src="chess.webp" alt="chess" class="h-20 -scale-y-100">
+      <img src="chess.webp" alt="chess" class="h-20">
     </div>
   </div>
 </PageLayout>
@@ -88,4 +83,21 @@ const stack = [
   }
   document.addEventListener('DOMContentLoaded', animateOnScroll);
   document.addEventListener('astro:after-swap', animateOnScroll);
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const texts = document.getElementsByClassName('wave-text');
+  Array.from(texts).forEach(text => {
+    if (text && text.textContent) {
+      text.innerHTML = text.textContent.replace(/\S/g, "<span class='wave-letter'>$&</span>");
+      const letters = text.querySelectorAll('.wave-letter');
+      letters.forEach((letter, index) => {
+        if (letter instanceof HTMLElement) {
+          letter.style.animationDelay = `${index * 0.1}s`;
+        }
+      });
+    }
+  });
+});
 </script>
