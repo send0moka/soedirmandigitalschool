@@ -262,6 +262,12 @@ article img {
 }
 
 .text-stroke {
-  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #252525;
+}
+
+@media (min-width: 768px) {
+  .text-stroke {
+    -webkit-text-stroke-width: 1.5px;
+  }
 }
