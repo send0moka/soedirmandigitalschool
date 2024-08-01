@@ -1,28 +1,6 @@
 ---
 import PageLayout from "@layouts/PageLayout.astro"
 import { SITE } from "@const"
-const stack = [
-  { 
-    text: "Astro", 
-    icon: "astro", 
-    href: "https://astro.build" 
-  },
-  { 
-    text: "Javascript", 
-    icon: "javascript", 
-    href: "https://www.javascript.com" 
-  },
-  { 
-    text: "Typescript", 
-    icon: "typescript", 
-    href: "https://www.typescriptlang.org" 
-  },
-  { 
-    text: "Tailwind", 
-    icon: "tailwind", 
-    href: "https://tailwindcss.com" 
-  },
-]
 ---
 
 <PageLayout title="Home" description={SITE.DESCRIPTION}>
@@ -31,8 +9,8 @@ const stack = [
       <section class="animate flex flex-col justify-center items-center">
         <h1 class="font-display text-center -translate-x-3 text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] mb-6 lg:mb-0 lg:leading-[1.15] text-rainbow wave-text">Tingkatkan Skill</h1>
         <h1 class="font-display text-center -translate-x-3 text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] lg:leading-[1.15] text-rainbow mb-16 wave-text">Digital Bersama SDS!</h1>
-        <p class="text-xl sm:text-2xl md:text-3xl bg-ijo-muda lg:bg-transparent text-balance text-center lg:w-2/3 text-hitam md:text-white font-bold tracking-wide mb-6 py-4 lg:py-0 rounded-3xl border-2 border-hitam lg:border-0 text-stroke">Investasikan waktumu dalam pembelajaran teknologi berkualitas dan raih peluang karir yang tak terbatas di era digital.</p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+        <p class="text-xl sm:text-2xl md:text-3xl bg-ijo-muda lg:bg-transparent text-balance text-center lg:w-2/3 md:text-white font-bold tracking-wide mb-6 py-4 lg:py-0 rounded-3xl border-2 border-hitam lg:border-0 text-stroke">Investasikan waktumu dalam pembelajaran teknologi berkualitas dan raih peluang karir yang tak terbatas di era digital.</p>
+        <div class="flex flex-col sm:flex-row items-center sm:items-start justify-center gap-6">
           <a href="#courses" class="btn">
             <div class="btn__content !h-16 !px-8">
               <span class="-mt-1 font-semibold text-2xl">Daftar Sekarang</span>
@@ -41,7 +19,30 @@ const stack = [
               </svg>
             </div>
           </a>
-          <a href="/about" class="bg-bata text-white px-6 py-3 rounded-lg text-lg hover:bg-bata-dark transition duration-300">Tentang Kami</a>
+          <div class="countdown-timer text-center">
+            <div class="flex justify-center items-center gap-2">
+              <div class="flex flex-col items-center">
+                <span id="days" class="text-3xl font-bold bg-[#fcedd8] border-2 border-hitam rounded-md p-2 min-w-[3rem]">00</span>
+                <span class="text-white font-bold text-sm mt-1">Hari</span>
+              </div>
+              <span class="-mt-6 text-3xl font-bold">:</span>
+              <div class="flex flex-col items-center">
+                <span id="hours" class="text-3xl font-bold bg-[#fcedd8] border-2 border-hitam rounded-md p-2 min-w-[3rem]">00</span>
+                <span class="text-white font-bold text-sm mt-1">Jam</span>
+              </div>
+              <span class="-mt-6 text-3xl font-bold">:</span>
+              <div class="flex flex-col items-center">
+                <span id="minutes" class="text-3xl font-bold bg-[#fcedd8] border-2 border-hitam rounded-md p-2 min-w-[3rem]">00</span>
+                <span class="text-white font-bold text-sm mt-1">Menit</span>
+              </div>
+            </div>
+            <div class="mt-2 text-sm bg-[#fcedd8] py-2 border-2 border-hitam rounded-full">
+              <svg class="w-5 h-5 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>7 September 2024, 07:00</span>
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -100,4 +101,37 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+</script>
+
+<script>
+  function updateCountdown() {
+    const targetDate = new Date('2024-09-07T07:00:00+07:00').getTime();
+    const now = new Date().getTime();
+    const timeLeft = targetDate - now;
+    if (timeLeft > 0) {
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const daysElement = document.getElementById('days');
+      if (daysElement !== null) {
+        daysElement.textContent = days.toString().padStart(2, '0');
+      }
+      const hoursElement = document.getElementById('hours');
+      if (hoursElement !== null) {
+        hoursElement.textContent = hours.toString().padStart(2, '0');
+      }
+      const minutesElement = document.getElementById('minutes');
+      if (minutesElement !== null) {
+        minutesElement.textContent = minutes.toString().padStart(2, '0');
+      }
+      setTimeout(updateCountdown, 60000);
+    } else {
+      const countdownTimer = document.querySelector('.countdown-timer');
+      if (countdownTimer !== null) {
+        countdownTimer.innerHTML = '<p class="text-lg font-bold">Waktu telah habis!</p>';
+      }
+    }
+  }
+  document.addEventListener('DOMContentLoaded', updateCountdown);
+  document.addEventListener('astro:after-swap', updateCountdown);
 </script>
