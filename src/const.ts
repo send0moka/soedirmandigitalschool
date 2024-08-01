@@ -101,5 +101,3 @@ export const SOCIALS: Socials = [
     HREF: "https://wa.me/6281226769494",
   },
 ]
-
-

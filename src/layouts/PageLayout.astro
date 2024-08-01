@@ -15,11 +15,13 @@ const { title, description } = Astro.props
   </head>
   <body>
     <div class="noise"></div>
-    <Header />
-    <Drawer />
-    <main class="transition-margin duration-300 ease-in-out">
-      <slot />
-    </main>
-    <Footer />
+    <div data-scroll-container>
+      <Header />
+      <Drawer />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
   </body>
 </html>

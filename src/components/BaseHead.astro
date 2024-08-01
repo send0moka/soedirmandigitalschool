@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from "astro:transitions"
+
 interface Props {
   title: string
   description: string
@@ -34,6 +36,10 @@ const { title, description, image = "/open-graph.jpg" } = Astro.props
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 <!-- Sitemap -->
 <link rel="sitemap" href="/sitemap-index.xml" />
+<!-- Scripts -->
+<script is:inline src="/js/smoothScroll.js"></script>
+
+<ViewTransitions />
 
 <script>
   import type { TransitionBeforeSwapEvent } from "astro:transitions/client"

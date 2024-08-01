@@ -8,4 +8,15 @@ import solidJs from "@astrojs/solid-js"
 export default defineConfig({
   site: "https://soedirmandigitalschool.vercel.app",
   integrations: [mdx(), sitemap(), solidJs(), tailwind({ applyBaseStyles: false })],
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          assetFileNames: 'assets/[name][extname]',
+          chunkFileNames: 'assets/[name].js',
+          entryFileNames: 'assets/[name].js',
+        },
+      },
+    },
+  },
 })
