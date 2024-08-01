@@ -34,9 +34,7 @@ const { title, description, image = "/open-graph.jpg" } = Astro.props
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 <!-- Sitemap -->
 <link rel="sitemap" href="/sitemap-index.xml" />
-<!-- Global Scripts -->
-<!-- <script is:inline src="/js/scroll.js"></script> -->
-<!-- <script is:inline src="/js/animate.js"></script> -->
+
 <script>
   import type { TransitionBeforeSwapEvent } from "astro:transitions/client"
   document.addEventListener("astro:before-swap", (e) =>

@@ -9,7 +9,7 @@ const { isDark = false } = Astro.props;
 ---
 
 <a href="/" class={`flex gap-2 items-center ${isDark ? 'text-white' : 'text-hitam'}`}>
-  <img src="logo.webp" alt="logo" class="size-10 md:size-14">
+  <img src="logo.webp" alt="logo" class="size-10 md:size-14" loading="lazy" width="40" height="40" />
   <div class="uppercase leading-tight">
     <div
       class={`-mb-[2px] font-display sm:text-lg md:text-2xl tracking-wide sm:tracking-widest`}

@@ -6,7 +6,7 @@ import { SITE } from "@const"
 <PageLayout title="Home" description={SITE.DESCRIPTION}>
   <div class="min-h-screen bg-retro">
     <div class="relative z-10 container mx-auto mt-32 lg:mt-36 px-4 py-16">
-      <section class="animated flex flex-col justify-center items-center">
+      <section class="flex flex-col justify-center items-center">
         <h1 class="font-display text-center -translate-x-3 text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] mb-6 lg:mb-0 lg:leading-[1.15] text-rainbow wave-text">Tingkatkan Skill</h1>
         <h1 class="font-display text-center -translate-x-3 text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] lg:leading-[1.15] text-rainbow mb-16 wave-text">Digital Bersama SDS!</h1>
         <p class="text-xl sm:text-2xl md:text-3xl bg-ijo-muda lg:bg-transparent text-balance text-center lg:w-2/3 md:text-white font-bold tracking-wide mb-6 py-4 lg:py-0 rounded-3xl border-2 border-hitam lg:border-0 text-stroke">Investasikan waktumu dalam pembelajaran teknologi berkualitas dan raih peluang karir yang tak terbatas di era digital.</p>
@@ -49,45 +49,17 @@ import { SITE } from "@const"
   </div>
   <div class="min-h-screen">
     <div class="flex overflow-hidden justify-center shadow-lg">
-      <img src="chess.webp" alt="chess" class="h-20 w-auto object-cover">
-      <img src="chess.webp" alt="chess" class="h-20 w-auto object-cover -scale-y-100">
-      <img src="chess.webp" alt="chess" class="h-20 w-auto object-cover">
-      <img src="chess.webp" alt="chess" class="h-20 w-auto object-cover -scale-y-100">
-      <img src="chess.webp" alt="chess" class="h-20 w-auto object-cover">
+      <img src="chess.webp" alt="chess" class="h-20 w-auto object-cover" width="80" height="80">
+      <img src="chess.webp" alt="chess" class="h-20 w-auto object-cover -scale-y-100" width="80" height="80">
+      <img src="chess.webp" alt="chess" class="h-20 w-auto object-cover" width="80" height="80">
+      <img src="chess.webp" alt="chess" class="h-20 w-auto object-cover -scale-y-100" width="80" height="80">
+      <img src="chess.webp" alt="chess" class="h-20 w-auto object-cover" width="80" height="80">
     </div>
-    <section class="animated flex flex-col justify-center items-center">
+    <section class="flex flex-col justify-center items-center">
 
     </section>
   </div>
 </PageLayout>
-
-<!-- <style>
-  .animate {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-  }
-  .animate.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
-
-<script>
-  function animateOnScroll() {
-    const animatedElements = document.querySelectorAll('.animate');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.1 });
-    animatedElements.forEach(el => observer.observe(el));
-  }
-  document.addEventListener('DOMContentLoaded', animateOnScroll);
-  document.addEventListener('astro:after-swap', animateOnScroll);
-</script> -->
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
