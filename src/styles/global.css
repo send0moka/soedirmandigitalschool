@@ -46,7 +46,7 @@ body {
 
 .noise {
   background-image: url(/noise.gif);
-  background-size: /*!size!*/ 200px /*!/size!*/;
+  background-size: /*!size!*/ 100px /*!/size!*/;
   opacity: /*!opacity!*/ 10% /*!/opacity!*/;
   height: 100%;
   width: 100%;
