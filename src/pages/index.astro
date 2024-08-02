@@ -1,7 +1,8 @@
 ---
 import PageLayout from "@layouts/PageLayout.astro"
 import { SITE } from "@const"
-import BentoGridDemo from "@components/BentoGridDemo.astro"
+
+const BentoGridDemo = await import("@components/BentoGridDemo.astro")
 ---
 
 <PageLayout title="Home" description={SITE.DESCRIPTION}>
@@ -57,7 +58,7 @@ import BentoGridDemo from "@components/BentoGridDemo.astro"
       <img src="chess.webp" alt="chess" class="h-20 w-auto object-cover" width="80" height="80" loading="lazy">
     </div>
     <section class="flex flex-col justify-center items-center my-20">
-      <BentoGridDemo />
+      <BentoGridDemo.default />
     </section>
   </div>
 </PageLayout>
@@ -89,21 +90,21 @@ document.addEventListener('DOMContentLoaded', function() {
       const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
       const daysElement = document.getElementById('days');
-      if (daysElement !== null) {
+      const hoursElement = document.getElementById('hours');
+      const minutesElement = document.getElementById('minutes');
+      if (daysElement && daysElement.textContent !== days.toString().padStart(2, '0')) {
         daysElement.textContent = days.toString().padStart(2, '0');
       }
-      const hoursElement = document.getElementById('hours');
-      if (hoursElement !== null) {
+      if (hoursElement && hoursElement.textContent !== hours.toString().padStart(2, '0')) {
         hoursElement.textContent = hours.toString().padStart(2, '0');
       }
-      const minutesElement = document.getElementById('minutes');
-      if (minutesElement !== null) {
+      if (minutesElement && minutesElement.textContent !== minutes.toString().padStart(2, '0')) {
         minutesElement.textContent = minutes.toString().padStart(2, '0');
       }
-      setTimeout(updateCountdown, 60000);
+      requestAnimationFrame(updateCountdown);
     } else {
       const countdownTimer = document.querySelector('.countdown-timer');
-      if (countdownTimer !== null) {
+      if (countdownTimer) {
         countdownTimer.innerHTML = '<p class="text-lg font-bold">Waktu telah habis!</p>';
       }
     }

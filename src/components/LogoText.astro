@@ -9,15 +9,12 @@ const { isDark = false } = Astro.props;
 ---
 
 <a href="/" class={`flex gap-2 items-center ${isDark ? 'text-white' : 'text-hitam'}`}>
-  <img src="logo.webp" alt="logo" class="size-10 md:size-14" loading="lazy" width="56" height="56">  <div class="uppercase leading-tight">
-    <div
-      class={`-mb-[2px] font-display sm:text-lg md:text-2xl tracking-wide sm:tracking-widest`}
-    >
+  <img src="logo.webp" alt="logo" class="size-10 md:size-14" loading="lazy" width="56" height="56">
+  <div class="uppercase leading-tight">
+    <div class={`-mb-[2px] font-display sm:text-lg md:text-2xl tracking-wide sm:tracking-widest`} >
       {SITE.TITLE}
     </div>
-    <div
-      class={`${isDark ? 'bg-white' : 'bg-hitam'} rounded-sm text-[8px] sm:text-xs md:text-sm font-semibold tracking-wider w-fit px-1 py-[1px] md:px-2 md:py-1 ${isDark ? 'text-hitam' : 'text-white'}`}
-    >
+    <div class={`${isDark ? 'bg-white' : 'bg-hitam'} rounded-sm text-[8px] sm:text-xs md:text-sm font-semibold tracking-wider w-fit px-1 py-[1px] md:px-2 md:py-1 ${isDark ? 'text-hitam' : 'text-white'}`} >
       {SITE.AUTHOR}
     </div>
   </div>

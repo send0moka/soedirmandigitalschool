@@ -14,6 +14,7 @@ const { title, description, image = "/open-graph.jpg" } = Astro.props
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Fonts -->
 <link rel="preload" href="/fonts/literata-regular.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="/fonts/sugo-bold.woff" as="font" type="font/woff" crossorigin>
@@ -37,7 +38,7 @@ const { title, description, image = "/open-graph.jpg" } = Astro.props
 <!-- Sitemap -->
 <link rel="sitemap" href="/sitemap-index.xml" />
 <!-- Scripts -->
-<script is:inline src="/js/smoothScroll.js"></script>
+<script src="/js/smoothScroll.js" async defer></script>
 
 <ViewTransitions />
 
