@@ -1,4 +1,5 @@
 import defaultTheme from "tailwindcss/defaultTheme"
+import plugin from "tailwindcss/plugin"
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -26,7 +27,25 @@ export default {
           },
         },
       },
+      textShadow: {
+        sm: "1px 1px var(--tw-shadow-color)",
+        DEFAULT: "2px 2px var(--tw-shadow-color)",
+        md: "3px 3px var(--tw-shadow-color)",
+        lg: "4px 4px var(--tw-shadow-color)",
+      }
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          "text-shadow": (value) => ({
+            textShadow: value,
+          })
+        },
+        { values: theme("textShadow") }
+      )
+    })
+  ],
 }

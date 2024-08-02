@@ -231,8 +231,47 @@ main {
   -webkit-text-stroke-color: #252525;
 }
 
+.title-stroke {
+  -webkit-text-stroke: 2px #78350f;
+  -webkit-text-fill-color: currentColor;
+  text-shadow: 
+    -4px -4px 0 #fff,
+    -4px -2px 0 #fff,
+    -4px 0 0 #fff,
+    -4px 2px 0 #fff,
+    -4px 4px 0 #fff,
+    -2px -4px 0 #fff,
+    -2px -2px 0 #fff,
+    -2px 0 0 #fff,
+    -2px 2px 0 #fff,
+    -2px 4px 0 #fff,
+    0 -4px 0 #fff,
+    0 -2px 0 #fff,
+    0 2px 0 #fff,
+    0 4px 0 #fff,
+    2px -4px 0 #fff,
+    2px -2px 0 #fff,
+    2px 0 0 #fff,
+    2px 2px 0 #fff,
+    2px 4px 0 #fff,
+    4px -4px 0 #fff,
+    4px -2px 0 #fff,
+    4px 0 0 #fff,
+    4px 2px 0 #fff,
+    4px 4px 0 #fff,
+    -2px -2px 0 #78350f,
+    2px -2px 0 #78350f,
+    -2px 2px 0 #78350f,
+    2px 2px 0 #78350f;
+}
+
 @media (min-width: 768px) {
   .text-stroke {
     -webkit-text-stroke-width: 1.5px;
   }
+
+  .title-stroke {
+    -webkit-text-stroke: 3px #78350f;
+  }
 }
+

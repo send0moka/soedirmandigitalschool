@@ -1,0 +1,33 @@
+---
+import { cn } from "@/lib/utils";
+
+interface Props {
+  className?: string;
+  title?: string;
+  description?: string;
+  header?: string;
+  icon: string;
+}
+
+const { className, title, description, header, icon } = Astro.props;
+---
+
+<div
+  class={cn(
+    "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input p-4 justify-between bg-white/50 border flex flex-col space-y-4",
+    className
+  )}
+>
+  {header && <img src={header} alt="header" class="h-44 lg:h-[300px] object-cover rounded-lg" loading="lazy" />}
+  <div class="group-hover/bento:translate-x-2 transition duration-200">
+    <svg class="size-7">
+      <use xlink:href={`/ui.svg#${icon}`}></use>
+    </svg>
+    <div class="font-sans font-bold text-xl mb-2 mt-2">
+      {title}
+    </div>
+    <div class="font-sans text-lg">
+      {description}
+    </div>
+  </div>
+</div>
