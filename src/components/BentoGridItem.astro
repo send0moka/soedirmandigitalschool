@@ -1,5 +1,6 @@
 ---
 import { cn } from "@/lib/utils";
+import { Image } from 'astro:assets';
 
 interface Props {
   className?: string;
@@ -14,20 +15,34 @@ const { className, title, description, header, icon } = Astro.props;
 
 <div
   class={cn(
-    "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input p-4 justify-between bg-white/50 border flex flex-col space-y-4",
+    "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input p-4 bg-white/50 border flex flex-col",
     className
   )}
 >
-  {header && <img src={header} alt="header" class="h-44 lg:h-[300px] object-cover rounded-lg" loading="lazy" />}
-  <div class="group-hover/bento:translate-x-2 transition duration-200">
-    <svg class="size-7">
+  {header && (
+    <div class="w-full flex-grow overflow-hidden rounded-lg">
+      <Image 
+        src={header} 
+        alt={title || "Header image"} 
+        width={1200}
+        height={800}
+        class="w-full h-full object-cover" 
+        loading="lazy"
+        decoding="async"
+        format="webp"
+        quality={80}
+      />
+    </div>
+  )}
+  <div class="mt-4 group-hover/bento:translate-x-2 transition duration-200">
+    <svg class="size-7" aria-hidden="true">
       <use xlink:href={`/ui.svg#${icon}`}></use>
     </svg>
-    <div class="font-sans font-bold text-xl mb-2 mt-2">
+    <h3 class="font-sans font-bold text-xl mb-2 mt-2">
       {title}
-    </div>
-    <div class="font-sans text-lg">
+    </h3>
+    <p class="font-sans text-lg">
       {description}
-    </div>
+    </p>
   </div>
 </div>
