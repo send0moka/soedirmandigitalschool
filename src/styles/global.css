@@ -30,6 +30,11 @@
   }
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #252525 transparent;
+}
+
 html {
   font-family: "Literata", sans-serif;
 }
