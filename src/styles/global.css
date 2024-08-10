@@ -43,6 +43,15 @@ body {
   overflow-y: auto;
 }
 
+::-webkit-scrollbar {
+  display: block;
+  width: .7rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #252525;
+}
+
 [data-scroll-container] {
   position: fixed;
   top: 0;
