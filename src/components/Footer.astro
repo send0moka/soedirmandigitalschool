@@ -6,8 +6,8 @@ import LogoText from "@components/LogoText.astro"
 const { pathname } = Astro.url
 ---
       
-<footer class="relative bg-ijo-tua border-t border-hitam text-white text-lg py-10">
-  <Container size="2xl">
+<footer class="relative bg-ijo-tua border-t border-hitam text-white py-10">
+  <Container size="xl">
     <div class="flex flex-col sm:flex-row justify-center sm:justify-between gap-8">
       <div class="sm:w-1/3">
         <LogoText isDark={true} />
@@ -45,14 +45,14 @@ const { pathname } = Astro.url
       </nav>
       <div>
         <b class="mb-2 block">Follow Us</b>
-        <div class="flex gap-4">
+        <div class="flex gap-2">
           {
             SOCIALS.map((SOCIAL) => (
               <a
                 href={SOCIAL.HREF}
                 target="_blank"
                 aria-label={`${SITE.TITLE} on ${SOCIAL.NAME}`}
-                class="size-12 rounded-full p-2 items-center justify-center hover:bg-white/5 blend"
+                class="size-10 rounded-full p-2 items-center justify-center hover:bg-white/5 blend"
               >
                 <svg class="size-full fill-white">
                   <use href={`/social.svg#${SOCIAL.ICON}`} />
@@ -63,6 +63,6 @@ const { pathname } = Astro.url
         </div>
       </div>
     </div>
-    <p class="text-center mt-10">&copy; {new Date().getFullYear()} Soedirman Digital School. All rights reserved.</p>
+    <p class="text-xs sm:text-base text-center mt-10">&copy; {new Date().getFullYear()} Soedirman Digital School. All rights reserved.</p>
   </Container>
 </footer>

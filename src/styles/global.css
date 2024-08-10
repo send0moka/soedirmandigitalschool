@@ -30,11 +30,6 @@
   }
 }
 
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #252525 transparent;
-}
-
 html {
   font-family: "Literata", sans-serif;
 }
@@ -46,25 +41,6 @@ html, body {
 body {
   @apply relative flex flex-col bg-ijo-muda;
   overflow-y: auto;
-}
-
-::-webkit-scrollbar {
-  display: block;
-  width: .7rem;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #252525;
-}
-
-[data-scroll-container] {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: visible;
-  will-change: transform;
-  min-height: 100vh;
 }
 
 .noise {
@@ -240,11 +216,6 @@ main {
   stroke-width: 1px;
 }
 
-.text-stroke {
-  -webkit-text-stroke-width: 0px;
-  -webkit-text-stroke-color: #252525;
-}
-
 .title-stroke {
   -webkit-text-stroke: 2px #78350f;
   -webkit-text-fill-color: currentColor;
@@ -280,10 +251,6 @@ main {
 }
 
 @media (min-width: 768px) {
-  .text-stroke {
-    -webkit-text-stroke-width: 1.5px;
-  }
-
   .title-stroke {
     -webkit-text-stroke: 3px #78350f;
   }

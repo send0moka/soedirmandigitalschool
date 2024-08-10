@@ -17,11 +17,9 @@ const { title, description } = Astro.props
     <div class="noise"></div>
     <Header />
     <Drawer />
-    <div data-scroll-container>
-      <main>
-        <slot />
-      </main>
-      <Footer />
-    </div>
+    <main>
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>

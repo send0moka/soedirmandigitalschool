@@ -4,13 +4,13 @@ import { LINKS } from "@const"
 const { pathname } = Astro.url
 ---
 
-<div class="buttons absolute right-0 top-1/2 -translate-y-1/2 flex gap-1 font-semibold text-hitam text-lg">
+<div class="buttons absolute right-0 top-1/2 -translate-y-1/2 flex gap-1 font-semibold text-hitam">
   <nav class="hidden xl:flex items-center justify-center gap-1 mt-2">
     {LINKS.map((LINK) => (
       <a
         href={LINK.HREF}
         class={cn(
-          "h-8 rounded-full px-3",
+          "h-8 rounded-full px-3 -translate-y-1",
           "flex items-center justify-center opacity-80",
           "hover:opacity-100 transition-all duration-300",
           pathname === LINK.HREF && "underline-active"
