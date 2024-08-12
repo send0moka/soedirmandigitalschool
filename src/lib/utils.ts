@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
+import AOS from "aos"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -18,4 +19,8 @@ export function readingTime(html: string) {
   const wordCount = textOnly.split(/\s+/).length
   const readingTimeMinutes = ((wordCount / 200) + 1).toFixed()
   return `${readingTimeMinutes} min read`
+}
+
+export function aosInit() {
+  AOS.init();
 }

@@ -19,6 +19,7 @@
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/solid-js": "^4.4.0",
     "@astrojs/tailwind": "^5.1.0",
+    "aos": "^2.3.4",
     "astro": "^4.12.2",
     "clsx": "^2.1.1",
     "fuse.js": "^7.0.0",
@@ -30,6 +31,7 @@
     "typescript": "^5.5.3"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.13"
+    "@tailwindcss/typography": "^0.5.13",
+    "@types/aos": "^3.0.7"
   }
 }

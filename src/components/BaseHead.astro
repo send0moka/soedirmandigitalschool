@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions"
+import "aos/dist/aos.css"
 
 interface Props {
   title: string
@@ -49,4 +50,10 @@ const { title, description, image = "/open-graph.jpg" } = Astro.props
       ),
     ].forEach((link) => link.remove())
   )
+</script>
+
+<script>
+  import { aosInit } from "@lib/utils"
+  aosInit()
+  document.addEventListener("astro:after-swap", aosInit);
 </script>
