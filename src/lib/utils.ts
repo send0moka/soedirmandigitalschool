@@ -22,5 +22,5 @@ export function readingTime(html: string) {
 }
 
 export function aosInit() {
-  AOS.init();
+  AOS.init()
 }

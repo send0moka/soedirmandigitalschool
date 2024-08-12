@@ -1,7 +1,7 @@
 ---
-import Container from "./Container.astro";
-import BentoGrid from "./BentoGrid.astro";
-import BentoGridItem from "./BentoGridItem.astro";
+import Container from "./Container.astro"
+import BentoGrid from "./BentoGrid.astro"
+import BentoGridItem from "./BentoGridItem.astro"
 
 const items = [
   {
@@ -35,11 +35,13 @@ const items = [
     header: "/benefit-5.webp",
     icon: "arrow-wave-right-up",
   },
-];
+]
+
+const aosAnimations = ["fade-up", "fade-down", "fade-left", "fade-right", "zoom-in"]
 ---
 
 <Container size="xl" >
-  <div class="mb-6 font-body uppercase text-5xl md:text-7xl text-center text-kuning tracking-wide title-stroke">
+  <div data-aos="fade-up" class="mb-6 font-body uppercase text-5xl md:text-7xl text-center text-kuning tracking-wide title-stroke">
     Benefit🤩
   </div>
   <BentoGrid>
@@ -50,6 +52,8 @@ const items = [
         header={item.header}
         icon={item.icon}
         className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+        aos={aosAnimations[i % aosAnimations.length]}
+        aosDelay={i * 100}
       />
     ))}
   </BentoGrid>

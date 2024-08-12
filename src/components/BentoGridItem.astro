@@ -1,16 +1,18 @@
 ---
-import { cn } from "@/lib/utils";
-import { Image } from 'astro:assets';
+import { cn } from "@/lib/utils"
+import { Image } from 'astro:assets'
 
 interface Props {
-  className?: string;
-  title?: string;
-  description?: string;
-  header?: string;
-  icon: string;
+  className?: string
+  title?: string
+  description?: string
+  header?: string
+  icon: string
+  aos?: string
+  aosDelay?: number
 }
 
-const { className, title, description, header, icon } = Astro.props;
+const { className, title, description, header, icon, aos, aosDelay } = Astro.props
 ---
 
 <div
@@ -18,6 +20,8 @@ const { className, title, description, header, icon } = Astro.props;
     "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input p-4 bg-white/50 border flex flex-col",
     className
   )}
+  data-aos={aos}
+  data-aos-delay={aosDelay}
 >
   {header && (
     <div class="w-full flex-grow overflow-hidden rounded-lg">
