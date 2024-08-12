@@ -54,6 +54,8 @@ const { title, description, image = "/open-graph.jpg" } = Astro.props
 
 <script>
   import { aosInit } from "@lib/utils"
-  aosInit()
+  document.addEventListener('DOMContentLoaded', function() {
+    aosInit()
+  })
   document.addEventListener("astro:after-swap", aosInit)
 </script>
