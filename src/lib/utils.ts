@@ -22,7 +22,9 @@ export function readingTime(html: string) {
 }
 
 export function aosInit() {
-  AOS.init()
+  setTimeout(() => {
+    AOS.init()
+  }, 100)
   window.addEventListener('load', function() {
     AOS.refresh()
   })
