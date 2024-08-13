@@ -52,7 +52,8 @@ const aosAnimations = ["fade-up", "fade-down", "fade-left", "fade-right", "zoom-
         header={item.header}
         icon={item.icon}
         className={i === 3 || i === 6 ? "md:col-span-2" : ""}
-        aos={aosAnimations[i % aosAnimations.length]}
+        aos="fade-up"
+        aosMd={aosAnimations[i % aosAnimations.length]}
         aosDelay={i * 100}
       />
     ))}

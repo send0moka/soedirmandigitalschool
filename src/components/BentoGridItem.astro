@@ -9,10 +9,11 @@ interface Props {
   header?: string
   icon: string
   aos?: string
+  aosMd?: string
   aosDelay?: number
 }
 
-const { className, title, description, header, icon, aos, aosDelay } = Astro.props
+const { className, title, description, header, icon, aos, aosMd, aosDelay } = Astro.props
 ---
 
 <div
@@ -21,6 +22,7 @@ const { className, title, description, header, icon, aos, aosDelay } = Astro.pro
     className
   )}
   data-aos={aos}
+  data-aos-md={aosMd}
   data-aos-delay={aosDelay}
 >
   {header && (
