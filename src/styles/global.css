@@ -41,6 +41,7 @@ html, body {
 body {
   @apply relative flex flex-col bg-ijo-muda;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .noise {
