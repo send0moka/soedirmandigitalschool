@@ -1,8 +1,8 @@
 ---
 import PageLayout from "@layouts/PageLayout.astro"
 import { SITE } from "@const"
-
-const BentoGridDemo = await import("@components/BentoGridDemo.astro")
+import BentoGrid from "@components/BentoGrid.astro"
+import CountdownTimer from "@components/CountdownTimer.astro"
 ---
 
 <PageLayout title="Home" description={SITE.DESCRIPTION}>
@@ -21,94 +21,25 @@ const BentoGridDemo = await import("@components/BentoGridDemo.astro")
               </svg>
             </div>
           </a>
-          <div class="countdown-timer text-center">
-            <div data-aos="fade-up" data-aos-delay="1500" data-aos-once="false" class="flex justify-center items-center gap-2">
-              <div class="flex flex-col items-center">
-                <span id="days" class="text-xl font-bold bg-[#fcedd8] border-2 border-hitam rounded-md p-2 min-w-[3rem]">00</span>
-                <span class="font-bold text-sm mt-1">Hari</span>
-              </div>
-              <span class="-mt-6 text-xl font-bold">:</span>
-              <div class="flex flex-col items-center">
-                <span id="hours" class="text-xl font-bold bg-[#fcedd8] border-2 border-hitam rounded-md p-2 min-w-[3rem]">00</span>
-                <span class="font-bold text-sm mt-1">Jam</span>
-              </div>
-              <span class="-mt-6 text-xl font-bold">:</span>
-              <div class="flex flex-col items-center">
-                <span id="minutes" class="text-xl font-bold bg-[#fcedd8] border-2 border-hitam rounded-md p-2 min-w-[3rem]">00</span>
-                <span class="font-bold text-sm mt-1">Menit</span>
-              </div>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="1800" data-aos-once="false" class="mt-2 text-xs bg-[#fcedd8] py-2 border-2 border-hitam rounded-full">
-              <svg class="size-4 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              <span>7 September 2024, 07:00</span>
-            </div>
-          </div>
+          <CountdownTimer targetDate="2024-09-07T07:00:00+07:00" />
         </div>
       </section>
     </div>
   </div>
   <div class="min-h-screen">
     <div class="flex overflow-hidden justify-center shadow-lg">
-      <img src="chess.webp" alt="chess" class="h-20 w-auto object-cover" width="80" height="80">
-      <img src="chess.webp" alt="chess" class="h-20 w-auto object-cover -scale-y-100" width="80" height="80">
-      <img src="chess.webp" alt="chess" class="h-20 w-auto object-cover" width="80" height="80">
-      <img src="chess.webp" alt="chess" class="h-20 w-auto object-cover -scale-y-100" width="80" height="80">
-      <img src="chess.webp" alt="chess" class="h-20 w-auto object-cover" width="80" height="80">
+      {[1, 2, 3, 4, 5].map((_, index) => (
+        <img src="chess.webp" alt="chess" class={`h-20 w-auto object-cover ${index % 2 !== 0 ? '-scale-y-100' : ''}`} width="80" height="80" loading="lazy" />
+      ))}
     </div>
     <section class="flex flex-col justify-center items-center my-20">
-      <BentoGridDemo.default />
+      <BentoGrid />
     </section>
   </div>
 </PageLayout>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const texts = document.getElementsByClassName('wave-text')
-  Array.from(texts).forEach(text => {
-    if (text && text.textContent) {
-      text.innerHTML = text.textContent.replace(/\S/g, "<span class='wave-letter'>$&</span>")
-      const letters = text.querySelectorAll('.wave-letter')
-      letters.forEach((letter, index) => {
-        if (letter instanceof HTMLElement) {
-          letter.style.animationDelay = `${index * 0.1}s`
-        }
-      })
-    }
-  })
-})
-</script>
-
-<script>
-  function updateCountdown() {
-    const targetDate = new Date('2024-09-07T07:00:00+07:00').getTime()
-    const now = new Date().getTime()
-    const timeLeft = targetDate - now
-    if (timeLeft > 0) {
-      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24))
-      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60))
-      const daysElement = document.getElementById('days')
-      const hoursElement = document.getElementById('hours')
-      const minutesElement = document.getElementById('minutes')
-      if (daysElement && daysElement.textContent !== days.toString().padStart(2, '0')) {
-        daysElement.textContent = days.toString().padStart(2, '0')
-      }
-      if (hoursElement && hoursElement.textContent !== hours.toString().padStart(2, '0')) {
-        hoursElement.textContent = hours.toString().padStart(2, '0')
-      }
-      if (minutesElement && minutesElement.textContent !== minutes.toString().padStart(2, '0')) {
-        minutesElement.textContent = minutes.toString().padStart(2, '0')
-      }
-      requestAnimationFrame(updateCountdown)
-    } else {
-      const countdownTimer = document.querySelector('.countdown-timer')
-      if (countdownTimer) {
-        countdownTimer.innerHTML = '<p class="text-lg font-bold">Waktu telah habis!</p>'
-      }
-    }
-  }
-  document.addEventListener('DOMContentLoaded', updateCountdown)
-  document.addEventListener('astro:after-swap', updateCountdown)
+  import { initWaveText } from "../scripts/waveText.js"
+  document.addEventListener("DOMContentLoaded", initWaveText)
+  document.addEventListener("astro:after-swap", initWaveText)
 </script>
