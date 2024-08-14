@@ -1,16 +1,5 @@
 # Soedirman Digital School
 
-Berikut beberapa saran untuk mengefisienkan kode dan struktur file/folder proyek Anda:
-
-1. Menggabungkan komponen-komponen kecil:
-   - Gabungkan `BentoGrid.astro`, `BentoGridItem.astro`, dan `BentoGridDemo.astro` menjadi satu file `BentoGrid.astro`. Ini akan mengurangi jumlah file dan membuat komponen lebih mudah dikelola.
-
-2. Optimasi impor:
-   - Gunakan impor dinamis untuk komponen yang hanya digunakan di halaman tertentu, seperti `BentoGridDemo` di `index.astro`.
-
-3. Lazy loading untuk gambar:
-   - Terapkan lazy loading untuk semua gambar menggunakan atribut `loading="lazy"` pada tag `<img>`.
-
 4. Menggabungkan file konstanta:
    - Gabungkan `const.ts` dan `types.ts` menjadi satu file `config.ts`.
 
