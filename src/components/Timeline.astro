@@ -1,0 +1,56 @@
+---
+import Container from "./Container.astro"
+
+const timelineItems = [
+  { date: "14/09/2024 - 17/09/2024", title: "Open Registration", icon: "how-to-reg", color: "gray", mlD: "sm:ml-[228px]", mlM: "ml-[168px]" },
+  { date: "21/09/2024", title: "Technical Meeting", icon: "account-group", color: "indigo", mlD: "sm:-ml-[228px]", mlM: "-ml-[158px]" },
+  { date: "22/09/2024 - 23/09/2024", title: "Pre-Test", icon: "history-edu", color: "amber", mlD: "sm:ml-[190px]", mlM: "ml-[170px]" },
+  { date: "27/09/2024", title: "Participant Announcement", icon: "campaign", color: "blue", mlD: "sm:-ml-[325px]", mlM: "-ml-[215px]" },
+  { date: "05/10/2024 - 30/11/2024", title: "Academy", icon: "library", color: "red", mlD: "sm:ml-[190px]", mlM: "ml-[170px]" },
+  { date: "07/12/2024", title: "Graduation", icon: "school", color: "green", extra: "+ Best Student Announcement", mlD: "sm:-ml-[216px]", mlM: "-ml-[215px]" },
+]
+---
+
+<Container size="xl">
+  <div class="relative flex flex-col justify-center">
+    <div
+      class="font-bold w-fit mx-auto p-2 relative z-30 border bg-white rounded-lg inline-block mb-2"
+      data-aos="fade-down"
+    >
+      Start Timeline📌
+    </div>
+
+    <div class="absolute left-1/2 -ml-0.5 w-1 h-full bg-gray-200" data-aos="fade-up"></div>
+    
+    <div class="w-full flex flex-col justify-center items-center">
+      {timelineItems.map((item, index) => (
+        <div
+          class={`mb-8 flex justify-center gap-2 items-center w-fit ${item.mlD} ${item.mlM} ${index % 2 === 0 ? "flex-row-reverse" : ""}`}
+          data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
+        >
+          <div class={`px-1 ${index % 2 === 0 ? "text-left" : "text-right"}`}>
+            <p class="mb-1 text-sm sm:text-base text-gray-500">{item.date}</p>
+            <h4 class="mb-1 font-bold sm:text-lg md:text-2xl">{item.title}</h4>
+            {item.extra && (
+              <p class="text-sm text-blue-500 hover:text-blue-700">
+                <a href="/best-student">{item.extra}</a>
+              </p>
+            )}
+          </div>
+          <div class={`z-20 flex items-center bg-gray-100 shadow-xl w-8 h-8 rounded-full bg-${item.color}-500`}>
+            <svg class="w-5 h-5 mx-auto text-white">
+              <use xlink:href={`/timeline.svg#${item.icon}`} />
+            </svg>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div
+      class="font-bold w-fit mx-auto p-2 border bg-white rounded-lg inline-block mt-2"
+      data-aos="fade-up"
+    >
+      Finish Timeline✅
+    </div>
+  </div>
+</Container>

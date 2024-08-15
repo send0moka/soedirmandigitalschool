@@ -3,6 +3,7 @@ import PageLayout from "@layouts/PageLayout.astro"
 import { SITE } from "@config"
 import BentoGrid from "@components/BentoGrid.astro"
 import CountdownTimer from "@components/CountdownTimer.astro"
+import Timeline from "@components/Timeline.astro"
 ---
 
 <PageLayout title="Home" description={SITE.DESCRIPTION}>
@@ -34,6 +35,9 @@ import CountdownTimer from "@components/CountdownTimer.astro"
     </div>
     <section class="flex flex-col justify-center items-center my-20">
       <BentoGrid />
+    </section>
+    <section class="flex flex-col justify-center items-center my-20">
+      <Timeline />
     </section>
   </div>
 </PageLayout>
