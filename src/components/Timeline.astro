@@ -3,12 +3,21 @@ import Container from "./Container.astro"
 
 const timelineItems = [
   { date: "14/09/2024 - 17/09/2024", title: "Open Registration", icon: "how-to-reg", color: "gray", mlD: "sm:ml-[228px]", mlM: "ml-[168px]" },
-  { date: "21/09/2024", title: "Technical Meeting", icon: "account-group", color: "indigo", mlD: "sm:-ml-[228px]", mlM: "-ml-[158px]" },
-  { date: "22/09/2024 - 23/09/2024", title: "Pre-Test", icon: "history-edu", color: "amber", mlD: "sm:ml-[190px]", mlM: "ml-[170px]" },
-  { date: "27/09/2024", title: "Participant Announcement", icon: "campaign", color: "blue", mlD: "sm:-ml-[325px]", mlM: "-ml-[215px]" },
+  { date: "21/09/2024", title: "Technical Meeting", icon: "account-group", color: "purple", mlD: "sm:-ml-[228px]", mlM: "-ml-[158px]" },
+  { date: "22/09/2024 - 23/09/2024", title: "Pre-Test", icon: "history-edu", color: "orange", mlD: "sm:ml-[190px]", mlM: "ml-[170px]" },
+  { date: "27/09/2024", title: "Participant Announcement", icon: "campaign", color: "indigo", mlD: "sm:-ml-[325px]", mlM: "-ml-[215px]" },
   { date: "05/10/2024 - 30/11/2024", title: "Academy", icon: "library", color: "red", mlD: "sm:ml-[190px]", mlM: "ml-[170px]" },
   { date: "07/12/2024", title: "Graduation", icon: "school", color: "green", extra: "+ Best Student Announcement", mlD: "sm:-ml-[216px]", mlM: "-ml-[215px]" },
 ]
+
+const colors: { [key: string]: string } = {
+  grey: "bg-gray-500",
+  indigo: "bg-indigo-500",
+  orange: "bg-orange-500",
+  purple: "bg-purple-500",
+  red: "bg-red-500",
+  green: "bg-green-500",
+}
 ---
 
 <Container size="xl">
@@ -37,7 +46,7 @@ const timelineItems = [
               </p>
             )}
           </div>
-          <div class={`z-20 flex items-center bg-gray-100 shadow-xl w-8 h-8 rounded-full bg-${item.color}-500`}>
+          <div class={`z-20 flex items-center bg-gray-100 shadow-xl w-8 h-8 rounded-full ${colors[item.color]}`}>
             <svg class="w-5 h-5 mx-auto text-white">
               <use xlink:href={`/timeline.svg#${item.icon}`} />
             </svg>
