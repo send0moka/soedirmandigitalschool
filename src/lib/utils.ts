@@ -24,10 +24,8 @@ export function readingTime(html: string) {
 export function aosInit() {
   AOS.init({
     once: true,
-    responsive: {
-      md: {
-        disable: false,
-      },
+    disable: function() {
+      return window.innerWidth < 1024
     },
   } as AOS.AosOptions)
   window.addEventListener("load", function () {
