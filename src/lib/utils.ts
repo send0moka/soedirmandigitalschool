@@ -23,6 +23,7 @@ export function readingTime(html: string) {
 
 export function aosInit() {
   AOS.init({
+    once: true,
     responsive: {
       md: {
         disable: false,
