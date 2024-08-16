@@ -1,0 +1,129 @@
+---
+import { Image } from "astro:assets"
+
+const features = [
+  {
+    id: 1,
+    name: 'Mahasiswa aktif S1/Vokasi Universitas Jenderal Soedirman dan <span class="font-medium">terbuka untuk Umum</span>',
+  },
+  {
+    id: 2,
+    name: "Mengerjakan tugas pretest, upload twibbon, dan mengisi form pendaftaran",
+  },
+  {
+    id: 3,
+    name: "Memiliki minat belajar tentang penggunaan Microsoft Office",
+    alt: "Tertarik untuk belajar cara mengolah dan memahami data",
+    other: "Memiliki minat dalam dunia pemasaran online",
+  },
+  {
+    id: 4,
+    name: "Bersedia mengikuti praktek dasar Microsoft Word, Excel, dan PowerPoint",
+    alt: "Bersedia belajar dasar-dasar analisis data menggunakan Spreadsheet dan Looker Studio",
+    other:
+      "Bersedia belajar tentang berbagai platform media sosial untuk pemasaran",
+  },
+  {
+    id: 5,
+    name: "Memiliki akses ke perangkat komputer untuk mengerjakan tugas",
+    alt: "Memiliki keingintahuan tentang cara membuat visualisasi data",
+    other: "Tertarik untuk belajar membuat konten digital",
+  },
+]
+
+const courses = [
+  {
+    title: "Microsoft Office",
+    image: "/ignasius.svg",
+    bgImage: "https://images.unsplash.com/photo-1632239776255-0a7f24814df2",
+    link: "/microsoft-office",
+    features: features.map((f) => f.name),
+  },
+  {
+    title: "Data Analyst",
+    image: "/bima.svg",
+    bgImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+    link: "/data-analyst",
+    features: features.map((f, i) =>
+      i < 2 ? f.name : i >= 2 && i <= 4 ? f.alt : f.name
+    ),
+  },
+  {
+    title: "Digital Marketing",
+    image: "/agusleo.svg",
+    bgImage: "https://images.unsplash.com/photo-1535303311164-664fc9ec6532",
+    link: "/digital-marketing",
+    features: features.map((f, i) =>
+      i < 2 ? f.name : i >= 2 && i <= 4 ? f.other : f.name
+    ),
+  },
+]
+---
+
+<div class="px-6 lg:max-w-[75rem] lg:mx-auto">
+  <div
+    data-aos="fade-up"
+    class="mb-6 font-body uppercase text-5xl md:text-7xl text-center text-kuning tracking-wide title-stroke"
+  >
+    Learning Path📚
+  </div>
+  <div class="flex flex-col lg:flex-row gap-4">
+    {
+      courses.map((course, index) => (
+        <div
+          class="lg:w-1/3 rounded-lg border border-gray-200 bg-white p-6 shadow-sm"
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+        >
+          <div class="flex gap-2 h-20 w-full">
+            <Image
+              src={course.image}
+              alt={course.title}
+              width={72}
+              height={72}
+              class="w-[72px] object-cover mb-2 rounded-lg"
+            />
+            <Image
+              src={course.bgImage}
+              alt={course.title}
+              width={300}
+              height={80}
+              class="w-full object-cover mb-2 rounded-lg"
+            />
+          </div>
+          <div class="flex items-start justify-between space-x-6">
+            <h3 class="font-semibold text-2xl text-gray-800">{course.title}</h3>
+            <p class="flex items-baseline">
+              <span class="font-semibold text-gray-800">Gratis✨</span>
+            </p>
+          </div>
+          <ul class="mt-4 space-y-2 text-gray-600">
+            {course.features.map((feature, featureIndex) => (
+              <li class="flex items-start space-x-2 py-1">
+                <svg
+                  class={`size-5 translate-y-1 shrink-0 ${featureIndex < 2 ? "text-blue-500" : "text-yellow-500"}`}
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span set:html={feature} />
+              </li>
+            ))}
+          </ul>
+          <hr class="my-4 border-gray-200" />
+          <a
+            href={course.link}
+            class="block w-full text-center py-2.5 px-4 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition duration-300 ease-in-out"
+          >
+            Selengkapnya
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</div>
