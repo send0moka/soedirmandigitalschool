@@ -1,168 +1,52 @@
 # Soedirman Digital School
 
-import { RiCheckboxCircleFill } from '@remixicon/react';
-import { Divider, List, ListItem } from '@tremor/react';
-import Link from 'next/link';
-
-const features = [
+const partners = [
     {
-        id: 1,
-        name: <>Mahasiswa aktif S1/Vokasi Universitas Jenderal Soedirman dan <span className="font-medium">terbuka untuk Umum</span></>,
+        image: "https://www.bem.ft.unsoed.ac.id/wp-content/uploads/2023/09/Logo-BEM-FT.png",
+        alt: "BEM FT",
     },
     {
-        id: 2,
-        name: 'Mengerjakan tugas pretest, upload twibbon, dan mengisi form pendaftaran',
+        image: "https://media.licdn.com/dms/image/C560BAQEF2TqRjENPSQ/company-logo_200_200/0/1630670982134?e=2147483647&v=beta&t=Ar-h10fXEwUEGoFWi8EBqiFmW_kd5shLC4gKpo3vkVo",
+        alt: "BEM FEB",
     },
     {
-        id: 3,
-        name: 'Memiliki minat belajar tentang penggunaan Microsoft Office',
-        alt: 'Tertarik untuk belajar cara mengolah dan memahami data',
-        other: 'Memiliki minat dalam dunia pemasaran online'
+        image: "https://ugc.production.linktr.ee/Boqc8HZ0RYC7l6wh5nep_kFI9k3XfjMN4rE4P",
+        alt: "BEM FAPERTA",
     },
     {
-        id: 4,
-        name: 'Bersedia mengikuti praktek dasar Microsoft Word, Excel, dan PowerPoint',
-        alt: 'Bersedia belajar dasar-dasar analisis data menggunakan Spreadsheet dan Looker Studio',
-        other: 'Bersedia belajar tentang berbagai platform media sosial untuk pemasaran'
+        image: "https://mediahusbandry.com/wp-content/uploads/2021/11/logo-bem.png",
+        alt: "BEM FAPET",
     },
     {
-        id: 5,
-        name: 'Memiliki akses ke perangkat komputer untuk mengerjakan tugas',
-        alt: 'Memiliki keingintahuan tentang cara membuat visualisasi data',
-        other: 'Tertarik untuk belajar membuat konten digital'
+        image: "https://fmipa.unsoed.ac.id/v4/wp-content/uploads/logo-bem-km-mipa-1024x1024.png",
+        alt: "BEM FMIPA",
     },
 ];
 
-export default function Course() {
+export default function Partner() {
     return (
-        <div className="px-6 lg:max-w-[75rem] lg:mx-auto">
+        <div className='space-y-4 flex flex-col justify-center items-center'>
             <div className="p-2 border bg-white rounded-lg inline-block mb-2">
-                <span className="font-display opacity-70">Learning Path📚</span>
+                <span className="font-display opacity-70">Our Partner🤝</span>
             </div>
-            <div className="flex flex-col lg:flex-row gap-4">
-                <div className="lg:w-1/3 rounded-tremor-default border border-tremor-border bg-white p-6">
-                    <div className="flex gap-2 h-20 w-full">
-                        <img src="/assets/ignasius.svg" alt="Office" className="w-[72px] object-cover mb-2 rounded-lg" />
-                        <img src="https://images.unsplash.com/photo-1632239776255-0a7f24814df2" alt="Office" className="w-full object-cover mb-2 rounded-lg" />
-                    </div>
-                    <div className="flex items-start justify-between space-x-6">
-                        <h3 className="font-semibold text-2xl text-tremor-content-strong">
-                            Microsoft Office
-                        </h3>
-                        <p className="flex items-baseline">
-                            <span className="font-semibold text-tremor-content-strong">
-                                Gratis✨
-                            </span>
-                        </p>
-                    </div>
-                    <List className="mt-4 divide-y-0 text-tremor-content-emphasis">
-                        {features.map((item, index) => (
-                            <ListItem
-                                key={item.id}
-                                className="justify-start space-x-2 py-2.5"
-                            >
-                                <RiCheckboxCircleFill
-                                    className={`h-5 w-5 shrink-0 ${index < 2 ? 'text-tremor-brand' : 'text-yellow-500'
-                                        }`}
-                                    aria-hidden={true}
-                                />
-                                <span>{item.name}</span>
-                            </ListItem>
-                        ))}
-                    </List>
-                    <Divider />
-                    <Link
-                        href="/microsoft-office"
-                        className="block w-full whitespace-nowrap rounded-tremor-small bg-tremor-brand py-2.5 text-center text-tremor-default font-medium text-tremor-brand-inverted shadow-tremor-input hover:bg-tremor-brand-emphasis"
-                    >
-                        Selengkapnya
-                    </Link>
-                </div>
-                <div className="lg:w-1/3 rounded-tremor-default border border-tremor-border bg-white p-6">
-                    <div className="flex gap-2 h-20 w-full">
-                        <img src="/assets/bima.svg" alt="Data Analyst" className="w-[72px] object-cover mb-2 rounded-lg" />
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="Data Analyst" className="w-full object-cover mb-2 rounded-lg" />
-                    </div>
-                    <div className="flex items-start justify-between space-x-6">
-                        <h3 className="font-semibold text-2xl text-tremor-content-strong">
-                            Data Analyst
-                        </h3>
-                        <p className="flex items-baseline">
-                            <span className="font-semibold text-tremor-content-strong">
-                                Gratis✨
-                            </span>
-                        </p>
-                    </div>
-                    <List className="mt-4 divide-y-0 text-tremor-content-emphasis">
-                        {features.map((item, index) => (
-                            <ListItem
-                                key={item.id}
-                                className="justify-start space-x-2 py-2.5"
-                            >
-                                <RiCheckboxCircleFill
-                                    className={`h-5 w-5 shrink-0 ${index < 2 ? 'text-tremor-brand' : 'text-yellow-500'
-                                        }`}
-                                    aria-hidden={true}
-                                />
-                                <span>{index < 2 ? item.name : (index >= 2 && index <= 4 ? item.alt : item.name)}</span>
-                            </ListItem>
-                        ))}
-                    </List>
-                    <Divider />
-                    <Link
-                        href="/data-analyst"
-                        className="block w-full whitespace-nowrap rounded-tremor-small bg-tremor-brand py-2.5 text-center text-tremor-default font-medium text-tremor-brand-inverted shadow-tremor-input hover:bg-tremor-brand-emphasis"
-                    >
-                        Selengkapnya
-                    </Link>
-                </div>
-                <div className="lg:w-1/3 rounded-tremor-default border border-tremor-border bg-white p-6">
-                    <div className="flex gap-2 h-20 w-full">
-                        <img src="/assets/agusleo.svg" alt="Market" className="w-[72px] object-cover mb-2 rounded-lg" />
-                        <img src="https://images.unsplash.com/photo-1535303311164-664fc9ec6532" alt="Market" className="w-full object-cover mb-2 rounded-lg" />
-                    </div>
-                    <div className="flex items-start justify-between space-x-6">
-                        <h3 className="font-semibold text-2xl text-tremor-content-strong">
-                            Digital Marketing
-                        </h3>
-                        <p className="flex items-baseline">
-                            <span className="font-semibold text-tremor-content-strong">
-                                Gratis✨
-                            </span>
-                        </p>
-                    </div>
-                    <List className="mt-4 mb-[63px] divide-y-0 text-tremor-content-emphasis">
-                        {features.map((item, index) => (
-                            <ListItem
-                                key={item.id}
-                                className="justify-start space-x-2 py-2.5"
-                            >
-                                <RiCheckboxCircleFill
-                                    className={`h-5 w-5 shrink-0 ${index < 2 ? 'text-tremor-brand' : 'text-yellow-500'
-                                        }`}
-                                    aria-hidden={true}
-                                />
-                                <span>{index < 2 ? item.name : (index >= 2 && index <= 4 ? item.other : item.name)}</span>
-                            </ListItem>
-                        ))}
-                    </List>
-                    <Divider />
-                    <Link
-                        href="/digital-marketing"
-                        className="block w-full whitespace-nowrap rounded-tremor-small bg-tremor-brand py-2.5 text-center text-tremor-default font-medium text-tremor-brand-inverted shadow-tremor-input hover:bg-tremor-brand-emphasis"
-                    >
-                        Selengkapnya
-                    </Link>
-                </div>
+            <div className="flex flex-wrap justify-center gap-5 md:gap-10">
+                {partners.map((partner, index) => (
+                    <img
+                        key={index}
+                        src={partner.image}
+                        alt={partner.alt}
+                        className="w-auto h-24 md:h-32"
+                    />
+                ))}
             </div>
         </div>
-    );
+    )
 }
 
 saya ingin kode nextjs diatas dimigrasi menjadi kode astro dan tolong efisiensikan serta beri aos.
 informasi tambahan: jangan suruh saya untuk install package, tolong buatkan componentnya secara manual di astro.
 
-src/components/Courses.astro:
+src/components/Partner.astro:
 <!-- isikan disini -->
 
 contoh pada src/components/BentoGrid.astro:

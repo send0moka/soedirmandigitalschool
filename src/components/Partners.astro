@@ -1,0 +1,62 @@
+---
+import { Image } from "astro:assets"
+
+const partners = [
+  {
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR316yJ9r9RXyEFLU1DAYbHXH7BaoDInY7nOA&s",
+    alt: "BEM FT",
+  },
+  {
+    image:
+      "https://media.licdn.com/dms/image/C560BAQEF2TqRjENPSQ/company-logo_200_200/0/1630670982134?e=2147483647&v=beta&t=Ar-h10fXEwUEGoFWi8EBqiFmW_kd5shLC4gKpo3vkVo",
+    alt: "BEM FEB",
+  },
+  {
+    image:
+      "https://ugc.production.linktr.ee/Boqc8HZ0RYC7l6wh5nep_kFI9k3XfjMN4rE4P",
+    alt: "BEM FAPERTA",
+  },
+  {
+    image: "https://mediahusbandry.com/wp-content/uploads/2021/11/logo-bem.png",
+    alt: "BEM FAPET",
+  },
+  {
+    image:
+      "https://fmipa.unsoed.ac.id/v4/wp-content/uploads/logo-bem-km-mipa-1024x1024.png",
+    alt: "BEM FMIPA",
+  },
+]
+
+const aosAnimations = [
+  "fade-up",
+  "fade-down",
+  "fade-left",
+  "fade-right",
+  "zoom-in",
+]
+---
+
+<div class="space-y-4 flex flex-col justify-center items-center">
+  <div
+    data-aos="fade-up"
+    class="mb-6 font-body uppercase text-5xl md:text-7xl text-center text-kuning tracking-wide title-stroke"
+  >
+    Our Partner🤝
+  </div>
+  <div class="flex flex-wrap justify-center gap-5 md:gap-10">
+    {
+      partners.map((partner, index) => (
+        <Image
+          src={partner.image}
+          alt={partner.alt}
+          width={128}
+          height={128}
+          class="w-auto h-24 md:h-32"
+          data-aos={aosAnimations[index % aosAnimations.length]}
+          data-aos-delay={index * 100}
+        />
+      ))
+    }
+  </div>
+</div>
