@@ -1,52 +1,73 @@
 # Soedirman Digital School
 
-const partners = [
-    {
-        image: "https://www.bem.ft.unsoed.ac.id/wp-content/uploads/2023/09/Logo-BEM-FT.png",
-        alt: "BEM FT",
-    },
-    {
-        image: "https://media.licdn.com/dms/image/C560BAQEF2TqRjENPSQ/company-logo_200_200/0/1630670982134?e=2147483647&v=beta&t=Ar-h10fXEwUEGoFWi8EBqiFmW_kd5shLC4gKpo3vkVo",
-        alt: "BEM FEB",
-    },
-    {
-        image: "https://ugc.production.linktr.ee/Boqc8HZ0RYC7l6wh5nep_kFI9k3XfjMN4rE4P",
-        alt: "BEM FAPERTA",
-    },
-    {
-        image: "https://mediahusbandry.com/wp-content/uploads/2021/11/logo-bem.png",
-        alt: "BEM FAPET",
-    },
-    {
-        image: "https://fmipa.unsoed.ac.id/v4/wp-content/uploads/logo-bem-km-mipa-1024x1024.png",
-        alt: "BEM FMIPA",
-    },
-];
+import * as React from 'react';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-export default function Partner() {
+export default function AccordionUsage() {
     return (
-        <div className='space-y-4 flex flex-col justify-center items-center'>
+        <div className='space-y-4 px-6 lg:px-48'>
             <div className="p-2 border bg-white rounded-lg inline-block mb-2">
-                <span className="font-display opacity-70">Our Partner🤝</span>
+                <span className="font-display opacity-70">Need More Help?🤔</span>
             </div>
-            <div className="flex flex-wrap justify-center gap-5 md:gap-10">
-                {partners.map((partner, index) => (
-                    <img
-                        key={index}
-                        src={partner.image}
-                        alt={partner.alt}
-                        className="w-auto h-24 md:h-32"
-                    />
-                ))}
-            </div>
+            <Accordion className='rounded-lg'>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1-content"
+                    id="panel1-header"
+                >
+                    Apakah acara ini gratis?
+                </AccordionSummary>
+                <AccordionDetails>
+                    Ya, acara ini gratis dan terbuka untuk umum.
+                </AccordionDetails>
+            </Accordion>
+            <Accordion className='rounded-lg'>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel2-content"
+                    id="panel2-header"
+                >
+                    Kapan pendaftaran Soedirman Digital School dibuka?
+                </AccordionSummary>
+                <AccordionDetails>
+                    Dari tanggal 14 September - 17 September 2024.
+                </AccordionDetails>
+            </Accordion>
+            <Accordion className='rounded-lg'>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel3-content"
+                    id="panel3-header"
+                >
+                    Komunikasi utama antara panitia dan pendaftar/calon pendaftar akan dilakukan dimana?
+                </AccordionSummary>
+                <AccordionDetails>
+                    Terdapat WhatsApp Community untuk memfasilitasi pertanyaan dan komunikasi pendaftar/calon pendaftar Soedirman Digital School.
+                </AccordionDetails>
+            </Accordion>
+            <Accordion className='rounded-lg'>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel4-content"
+                    id="panel4-header"
+                >
+                    Bagaimana sistem pendaftaran tiap pelatihan?
+                </AccordionSummary>
+                <AccordionDetails>
+                    Pendaftaran dilakukan secara online melalui website Soedirman Digital School.
+                </AccordionDetails>
+            </Accordion>
         </div>
-    )
+    );
 }
 
 saya ingin kode nextjs diatas dimigrasi menjadi kode astro dan tolong efisiensikan serta beri aos.
 informasi tambahan: jangan suruh saya untuk install package, tolong buatkan componentnya secara manual di astro.
 
-src/components/Partner.astro:
+src/components/Faq.astro:
 <!-- isikan disini -->
 
 contoh pada src/components/BentoGrid.astro:

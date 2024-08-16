@@ -1,0 +1,91 @@
+---
+const faqItems = [
+  {
+    question: "Apakah acara ini gratis?",
+    answer: "Ya, acara ini gratis dan terbuka untuk umum.",
+  },
+  {
+    question: "Kapan pendaftaran Soedirman Digital School dibuka?",
+    answer: "Dari tanggal 14 September - 17 September 2024.",
+  },
+  {
+    question:
+      "Komunikasi utama antara panitia dan pendaftar/calon pendaftar akan dilakukan dimana?",
+    answer:
+      "Terdapat WhatsApp Community untuk memfasilitasi pertanyaan dan komunikasi pendaftar/calon pendaftar Soedirman Digital School.",
+  },
+  {
+    question: "Bagaimana sistem pendaftaran tiap pelatihan?",
+    answer:
+      "Pendaftaran dilakukan secara online melalui website Soedirman Digital School.",
+  },
+]
+---
+
+<div class="space-y-4 px-6 lg:px-48" data-aos="fade-up">
+  <div
+    data-aos="fade-up"
+    class="mb-6 font-body uppercase text-5xl md:text-7xl text-center text-kuning tracking-wide title-stroke"
+  >
+    Need More Help?🤔
+  </div>
+  {
+    faqItems.map((item, index) => (
+      <div
+        class="rounded-lg bg-white shadow-md"
+        data-aos="fade-up"
+        data-aos-delay={index * 100}
+      >
+        <details class="group">
+          <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4">
+            <span>{item.question}</span>
+            <span class="transition group-open:rotate-180">
+              <svg
+                fill="none"
+                height="24"
+                shape-rendering="geometricPrecision"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </span>
+          </summary>
+          <p class="text-neutral-600 mt-3 group-open:animate-fadeIn p-4 pt-0">
+            {item.answer}
+          </p>
+        </details>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const details = document.querySelectorAll("details")
+    details.forEach((detail) => {
+      detail.addEventListener("toggle", () => {
+        if (detail.open) {
+          details.forEach((otherDetail) => {
+            if (otherDetail !== detail) {
+              otherDetail.removeAttribute("open")
+            }
+          })
+        }
+      })
+    })
+  })
+</script>
