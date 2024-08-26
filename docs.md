@@ -1,0 +1,1 @@
+tree /F /A | findstr /v /i ".git .vscode node_modules .astro .gitignore pnpm-lock.yaml"

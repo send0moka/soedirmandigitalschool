@@ -1,0 +1,88 @@
+---
+import PageLayout from "@layouts/PageLayout.astro"
+import { SITE } from "@config"
+import Modal from "@components/Modal.astro"
+---
+
+<PageLayout title="Home" description={SITE.DESCRIPTION}>
+  <div class="min-h-screen bg-retro flex flex-col justify-center items-center">
+    <div class="relative z-10 container mx-auto -mt-36 px-4">
+      <section class="flex flex-col justify-center items-center">
+        <h1
+          data-aos="fade-up"
+          data-aos-delay="300"
+          class="font-display text-center text-6xl sm:text-8xl md:text-9xl mb-10 lg:leading-[1.15] text-rainbow wave-text"
+        >
+          Data Analyst
+        </h1>
+        <p
+          data-aos="fade-up"
+          data-aos-delay="900"
+          class="sm:text-xl bg-ijo-muda text-balance text-center lg:w-2/3 md:text-hitam font-bold tracking-wide mb-4 py-4 rounded-3xl border-2 border-hitam"
+        >
+          Data Analyst adalah seorang profesional yang bertugas untuk
+          mengumpulkan, mengolah, menganalisis, dan menginterpretasikan data
+          untuk membantu perusahaan dalam membuat keputusan yang lebih baik.
+          Data Analyst juga bertanggung jawab dalam membuat laporan dan
+          visualisasi data agar mudah dipahami.
+        </p>
+        <button id="daftarBtn" data-aos="fade-up" data-aos-delay="1200" class="btn">
+          <div class="btn__content !h-14 !px-8">
+            <span class="-mt-1 font-semibold text-xl">Daftar Sekarang</span>
+            <svg
+              class="btn__arrow h-4 opacity-90 stroke-current bold-stroke"
+              width="25"
+              height="15"
+              fill="currentColor"
+            >
+              <use href="/ui.svg#arrow"></use>
+            </svg>
+          </div>
+        </button>
+      </section>
+    </div>
+  </div>
+  <Modal id="daftarModal">
+    <div class="bg-white p-6 rounded-lg">
+      <h2 class="text-2xl font-bold mb-4">Pilih Jenis Pendaftaran</h2>
+      <div class="flex justify-center space-x-4">
+        <a href="/daftar-umum" class="btn">
+          <div class="btn__content !h-14 !px-8">
+            <span class="-mt-1 font-semibold text-xl">Umum</span>
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+            </svg>
+          </div>
+        </a>
+        <a href="/daftar-gensoed" class="btn">
+          <div class="btn__content !h-14 !px-8">
+            <span class="-mt-1 font-semibold text-xl">Gensoed</span>
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </Modal>
+</PageLayout>
+
+<script>
+  import { initWaveText } from "../scripts/waveText.js"
+  import { openModal, initializeModal } from "../scripts/modal.js"
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initWaveText()
+    initializeModal("daftarModal")
+    const daftarBtn = document.getElementById("daftarBtn")
+    const daftarModal = document.getElementById("daftarModal")
+    if (daftarBtn && daftarModal) {
+      daftarBtn.addEventListener("click", () => openModal(daftarModal))
+    }
+  })
+
+  document.addEventListener("astro:after-swap", () => {
+    initWaveText()
+    initializeModal("daftarModal")
+  })
+</script>

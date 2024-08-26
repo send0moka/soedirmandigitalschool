@@ -12,47 +12,46 @@ const features = [
   },
   {
     id: 3,
-    name: "Memiliki minat belajar tentang penggunaan Microsoft Office",
-    alt: "Tertarik untuk belajar cara mengolah dan memahami data",
-    other: "Memiliki minat dalam dunia pemasaran online",
+    name: "Tertarik untuk belajar cara mengolah dan memahami data",
+    alt: "Memiliki minat dalam desain visual dan pengalaman pengguna",
+    other: "Tertarik untuk belajar cara membangun tampilan website yang menarik dan interaktif",
   },
   {
     id: 4,
-    name: "Bersedia mengikuti praktek dasar Microsoft Word, Excel, dan PowerPoint",
-    alt: "Bersedia belajar dasar-dasar analisis data menggunakan Spreadsheet dan Looker Studio",
-    other:
-      "Bersedia belajar tentang berbagai platform media sosial untuk pemasaran",
+    name: "Bersedia belajar dasar-dasar analisis data menggunakan Spreadsheet dan Looker Studio",
+    alt: "Bersedia belajar prinsip-prinsip dasar desain seperti layout, tipografi, dan teori warna",
+    other: "Bersedia belajar bahasa pemrograman HTML, CSS, dan JavaScript",
   },
   {
     id: 5,
-    name: "Memiliki akses ke perangkat komputer untuk mengerjakan tugas",
-    alt: "Memiliki keingintahuan tentang cara membuat visualisasi data",
-    other: "Tertarik untuk belajar membuat konten digital",
+    name: "Memiliki keingintahuan tentang cara membuat visualisasi data",
+    alt: "Siap mempelajari alat desain seperti Figma, Sketch, atau Adobe XD",
+    other: "Bersedia belajar desain website yang responsif",
   },
 ]
 
 const courses = [
   {
-    title: "Microsoft Office",
-    image: "/ignasius.svg",
-    bgImage: "https://images.unsplash.com/photo-1632239776255-0a7f24814df2",
-    link: "/microsoft-office",
-    features: features.map((f) => f.name),
-  },
-  {
     title: "Data Analyst",
     image: "/bima.svg",
     bgImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
     link: "/data-analyst",
+    features: features.map((f) => f.name),
+  },
+  {
+    title: "UI/UX",
+    image: "/ignasius.svg",
+    bgImage: "https://images.unsplash.com/photo-1632239776255-0a7f24814df2",
+    link: "/ui-ux",
     features: features.map((f, i) =>
       i < 2 ? f.name : i >= 2 && i <= 4 ? f.alt : f.name
     ),
   },
   {
-    title: "Digital Marketing",
+    title: "Web Developer",
     image: "/agusleo.svg",
     bgImage: "https://images.unsplash.com/photo-1535303311164-664fc9ec6532",
-    link: "/digital-marketing",
+    link: "/web-developer",
     features: features.map((f, i) =>
       i < 2 ? f.name : i >= 2 && i <= 4 ? f.other : f.name
     ),
