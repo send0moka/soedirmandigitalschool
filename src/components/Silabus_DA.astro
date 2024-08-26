@@ -1,0 +1,169 @@
+---
+import { cn } from "@/lib/utils"
+
+interface Item {
+	name: string
+	description: string
+  icon: string
+  color: string
+  time: string
+}
+
+const notifications: Item[] = [
+    {
+        name: "Camp 1",
+        description: "Pengantar Data Analyst",
+        time: "15m ago",
+        icon: "💸",
+        color: "#00C9A7",
+    },
+    {
+        name: "Camp 2",
+        description: "Dasar Statistik",
+        time: "10m ago",
+        icon: "👤",
+        color: "#FFB800",
+    },
+    {
+        name: "Camp 3",
+        description: "Tantangan Dalam Pengolahan Data",
+        time: "5m ago",
+        icon: "💬",
+        color: "#FF3D71",
+    },
+    {
+        name: "Camp 4",
+        description: "Pengumpulan, Pemeriksaan, dan Pembersihan Data",
+        time: "2m ago",
+        icon: "🗞️",
+        color: "#1E86FF",
+    },
+    {
+        name: "Camp 5",
+        description: "Exploratory Data Analysis (EDA)",
+        time: "1m ago",
+        icon: "📈",
+        color: "#F24E1E",
+    },
+    {
+        name: "Camp 6",
+        description: "Midtest",
+        time: "30s ago",
+        icon: "📝",
+        color: "#00C9A7",
+    },
+    {
+        name: "Camp 7",
+        description: "Latihan Exploratory Data Analysis (EDA)",
+        time: "20s ago",
+        icon: "📚",
+        color: "#FFB800",
+    },
+    {
+        name: "Camp 8",
+        description: "Belajar Dasar Visualisasi Data",
+        time: "15s ago",
+        icon: "💻",
+        color: "#FF3D71",
+    },
+    {
+        name: "Camp 9",
+        description: "Membuat Report",
+        time: "10s ago",
+        icon: "📁",
+        color: "#1E86FF",
+    },
+    {
+        name: "Camp 10",
+        description: "Arahan Final Project",
+        time: "5s ago",
+        icon: "👥",
+        color: "#F24E1E",
+    },
+];
+---
+
+<div class="w-full lg:w-fit px-6 lg:px-0" data-aos="fade-up">
+	<div data-aos="fade-up" class="mb-6 font-body uppercase text-5xl md:text-7xl text-center text-kuning tracking-wide title-stroke">
+    Silabus🤗
+  </div>
+	<div class="relative h-[29.2rem] w-full overflow-hidden rounded-lg border bg-background p-6 shadow-lg">
+			<div class="animated-list">
+					{notifications.map((item, idx) => (
+							<div class="animated-list-item">
+									<figure
+											class={cn(
+													"relative min-h-fit w-full transform cursor-pointer overflow-hidden rounded-2xl p-4 mb-4",
+													"transition-all duration-200 ease-in-out hover:scale-[103%]",
+													"bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
+											)}
+									>
+											<div class="flex flex-row items-center gap-3">
+													<div
+															class="flex h-10 w-10 items-center justify-center rounded-2xl"
+															style={`background-color: ${item.color};`}
+													>
+															<span class="text-lg">{item.icon}</span>
+													</div>
+													<div class="flex flex-col overflow-hidden">
+															<figcaption class="flex flex-row items-center whitespace-pre text-lg font-medium">
+																	<span class="text-sm sm:text-lg">{item.name}</span>
+																	<span class="mx-1">·</span>
+																	<span class="text-xs text-gray-500">{item.time}</span>
+															</figcaption>
+															<p class="text-sm font-normal">
+																	{item.description}
+															</p>
+													</div>
+											</div>
+									</figure>
+							</div>
+					))}
+			</div>
+	</div>
+</div>
+
+<style>
+.animated-list {
+	display: flex;
+	flex-direction: column;
+	animation: scroll 15s linear infinite;
+}
+
+.animated-list-item {
+	flex-shrink: 0;
+}
+
+@keyframes scroll {
+	0% {
+			transform: translateY(0);
+	}
+	100% {
+			transform: translateY(-100%);
+	}
+}
+
+.animated-list::-webkit-scrollbar {
+	display: none;
+}
+
+.animated-list {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+</style>
+
+<script>
+document.addEventListener("astro:page-load", () => {
+	const list = document.querySelector(".animated-list");
+	if (list instanceof HTMLElement) {
+			const items = list.querySelectorAll(".animated-list-item");
+			items.forEach(item => {
+					const clone = item.cloneNode(true);
+					list.appendChild(clone);
+			});
+			const totalItems = list.querySelectorAll(".animated-list-item").length;
+			list.style.animationDuration = `${totalItems * 2}s`;
+	}
+});
+</script>

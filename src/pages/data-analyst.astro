@@ -2,9 +2,10 @@
 import PageLayout from "@layouts/PageLayout.astro"
 import { SITE } from "@config"
 import Modal from "@components/Modal.astro"
+import Silabus_DA from "@components/Silabus_DA.astro"
 ---
 
-<PageLayout title="Home" description={SITE.DESCRIPTION}>
+<PageLayout title="Data Analyst" description={SITE.DESCRIPTION}>
   <div class="min-h-screen bg-retro flex flex-col justify-center items-center">
     <div class="relative z-10 container mx-auto -mt-36 px-4">
       <section class="flex flex-col justify-center items-center">
@@ -28,7 +29,7 @@ import Modal from "@components/Modal.astro"
         </p>
         <button id="daftarBtn" data-aos="fade-up" data-aos-delay="1200" class="btn">
           <div class="btn__content !h-14 !px-8">
-            <span class="-mt-1 font-semibold text-xl">Daftar Sekarang</span>
+            <span class="-mt-1 font-semibold text-xl">Daftar Data Analyst Sekarang</span>
             <svg
               class="btn__arrow h-4 opacity-90 stroke-current bold-stroke"
               width="25"
@@ -46,7 +47,7 @@ import Modal from "@components/Modal.astro"
     <div class="bg-white p-6 rounded-lg">
       <h2 class="text-2xl font-bold mb-4">Pilih Jenis Pendaftaran</h2>
       <div class="flex justify-center space-x-4">
-        <a href="/daftar-umum" class="btn">
+        <a href="https://forms.gle/evQ7DzWwB5CEzgK87" class="btn">
           <div class="btn__content !h-14 !px-8">
             <span class="-mt-1 font-semibold text-xl">Umum</span>
             <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +55,7 @@ import Modal from "@components/Modal.astro"
             </svg>
           </div>
         </a>
-        <a href="/daftar-gensoed" class="btn">
+        <a href="https://forms.gle/fxTQgzR4A1jRhG2B9" class="btn">
           <div class="btn__content !h-14 !px-8">
             <span class="-mt-1 font-semibold text-xl">Gensoed</span>
             <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -65,6 +66,25 @@ import Modal from "@components/Modal.astro"
       </div>
     </div>
   </Modal>
+  <div class="min-h-screen">
+    <div class="flex overflow-hidden justify-center shadow-lg">
+      {
+        [1, 2, 3, 4, 5].map((_, index) => (
+          <img
+            src="chess.webp"
+            alt="chess"
+            class={`h-20 w-auto object-cover ${index % 2 !== 0 ? "-scale-y-100" : ""}`}
+            width="80"
+            height="80"
+            loading="lazy"
+          />
+        ))
+      }
+    </div>
+    <section class="z-10 lg:px-6 mt-10 w-full flex flex-col lg:flex-row justify-center items-center lg:items-start gap-10">
+      <Silabus_DA />
+    </section>
+  </div>
 </PageLayout>
 
 <script>
