@@ -19,13 +19,13 @@ import Silabus_WD from "@components/Silabus_WD.astro"
         <p
           data-aos="fade-up"
           data-aos-delay="900"
-          class="sm:text-xl bg-ijo-muda text-balance text-center lg:w-2/3 md:text-hitam font-bold tracking-wide mb-4 py-4 rounded-3xl border-2 border-hitam"
+          class="text-sm sm:text-xl bg-ijo-muda text-balance text-center lg:w-2/3 md:text-hitam font-bold tracking-wide mb-4 py-4 rounded-3xl border-2 border-hitam"
         >
           Web Developer adalah seorang profesional yang bertanggung jawab dalam merancang, mengembangkan, dan memelihara situs web serta aplikasi web. Web Developer bekerja dengan berbagai teknologi seperti HTML, CSS, JavaScript, dan framework terkait untuk membangun antarmuka pengguna yang interaktif dan responsif.
         </p>
-        <button id="daftarBtn" data-aos="fade-up" data-aos-delay="1200" class="btn">
+        <a href="#daftarModal" class="btn" id="daftarBtn"  data-aos="fade-up" data-aos-delay="1200">
           <div class="btn__content !h-14 !px-8">
-            <span class="-mt-1 font-semibold text-xl">Daftar Web Developer Sekarang</span>
+            <span class="-mt-1 font-semibold sm:text-xl">Daftar Web Developer Sekarang</span>
             <svg
               class="btn__arrow h-4 opacity-90 stroke-current bold-stroke"
               width="25"
@@ -35,7 +35,7 @@ import Silabus_WD from "@components/Silabus_WD.astro"
               <use href="/ui.svg#arrow"></use>
             </svg>
           </div>
-        </button>
+        </a>
       </section>
     </div>
   </div>
@@ -43,7 +43,7 @@ import Silabus_WD from "@components/Silabus_WD.astro"
     <div class="bg-white p-6 rounded-lg">
       <h2 class="text-2xl font-bold mb-4">Pilih Jenis Pendaftaran</h2>
       <div class="flex justify-center space-x-4">
-        <a href="https://forms.gle/MhG1w1XqFWrSRagG6" class="btn">
+        <a href="https://forms.gle/MhG1w1XqFWrSRagG6" target="_blank" class="btn">
           <div class="btn__content !h-14 !px-8">
             <span class="-mt-1 font-semibold text-xl">Umum</span>
             <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +51,7 @@ import Silabus_WD from "@components/Silabus_WD.astro"
             </svg>
           </div>
         </a>
-        <a href="https://forms.gle/JBm6FmxPPRP3VdDy8" class="btn">
+        <a href="https://forms.gle/JBm6FmxPPRP3VdDy8" target="_blank" class="btn">
           <div class="btn__content !h-14 !px-8">
             <span class="-mt-1 font-semibold text-xl">Gensoed</span>
             <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -67,7 +67,7 @@ import Silabus_WD from "@components/Silabus_WD.astro"
       {
         [1, 2, 3, 4, 5].map((_, index) => (
           <img
-            src="chess.webp"
+            src="/chess.webp"
             alt="chess"
             class={`h-20 w-auto object-cover ${index % 2 !== 0 ? "-scale-y-100" : ""}`}
             width="80"
@@ -86,48 +86,11 @@ import Silabus_WD from "@components/Silabus_WD.astro"
 <script>
   import { initWaveText } from "../scripts/waveText.js"
   
-  function openModal(modal: HTMLElement) {
-    if (modal) {
-      modal.classList.remove("hidden");
-      document.body.style.overflow = "hidden";
-    }
-  }
-
-  function closeModal(modal: HTMLElement) {
-    if (modal) {
-      modal.classList.add("hidden")
-      document.body.style.overflow = ""
-    }
-  }
-
-  function initializeModal(modalId: string) {
-    const modal = document.getElementById(modalId)
-    if (!modal) return
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        closeModal(modal)
-      }
-    })
-    const closeButton = modal.querySelector(".modal-close")
-    if (closeButton) {
-      closeButton.addEventListener("click", () => closeModal(modal))
-    }
-  }
-
   document.addEventListener("DOMContentLoaded", () => {
     initWaveText();
-    initializeModal("daftarModal");
-    const daftarBtn = document.getElementById("daftarBtn");
-    const daftarModal = document.getElementById("daftarModal");
-    if (daftarBtn && daftarModal) {
-      daftarBtn.addEventListener("click", () => {
-        openModal(daftarModal);
-      });
-    }
   });
 
   document.addEventListener("astro:after-swap", () => {
     initWaveText()
-    initializeModal("daftarModal")
   })
 </script>
