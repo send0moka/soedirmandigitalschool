@@ -85,20 +85,62 @@ import Silabus_UIUX from "@components/Silabus_UIUX.astro"
 
 <script>
   import { initWaveText } from "../scripts/waveText.js"
-  import { openModal, initializeModal } from "../scripts/modal.js"
-
-  document.addEventListener("DOMContentLoaded", () => {
-    initWaveText()
-    initializeModal("daftarModal")
-    const daftarBtn = document.getElementById("daftarBtn")
-    const daftarModal = document.getElementById("daftarModal")
-    if (daftarBtn && daftarModal) {
-      daftarBtn.addEventListener("click", () => openModal(daftarModal))
+  
+  function openModal(modal: HTMLElement) {
+    console.log("openModal called with:", modal);
+    if (modal) {
+      modal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+      console.log("Modal opened");
     }
-  })
+  }
 
-  document.addEventListener("astro:after-swap", () => {
-    initWaveText()
-    initializeModal("daftarModal")
-  })
+  function closeModal(modal: HTMLElement) {
+    if (modal) {
+      modal.classList.add("hidden");
+      document.body.style.overflow = "";
+      // Reload halaman setelah modal ditutup
+      window.location.reload();
+    }
+  }
+
+  function initializeModal(modalId: string) {
+    const modal = document.getElementById(modalId)
+    if (!modal) return
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal(modal)
+      }
+    })
+    const closeButton = modal.querySelector(".modal-close")
+    if (closeButton) {
+      closeButton.addEventListener("click", () => closeModal(modal))
+    }
+  }
+
+  function initializePage() {
+    console.log("Initializing page");
+    initWaveText();
+    initializeModal("daftarModal");
+    const daftarBtn = document.getElementById("daftarBtn");
+    const daftarModal = document.getElementById("daftarModal");
+    console.log("daftarBtn:", daftarBtn);
+    console.log("daftarModal:", daftarModal);
+    if (daftarBtn && daftarModal) {
+      console.log("Adding click event listener to daftarBtn");
+      daftarBtn.addEventListener("click", () => {
+        console.log("daftarBtn clicked");
+        openModal(daftarModal);
+      });
+    }
+  }
+
+  // Run initialization on initial page load
+  document.addEventListener("DOMContentLoaded", initializePage);
+
+  // Run initialization after Astro swaps the content
+  document.addEventListener("astro:after-swap", initializePage);
+
+  // Additional event listener for Astro's page load event
+  document.addEventListener("astro:page-load", initializePage);
 </script>

@@ -629,7 +629,7 @@ import Silabus from "@components/Silabus.astro"
 
 <script>
   import { initWaveText } from "../scripts/waveText.js"
-  import { openModal, initializeModal } from "../scripts/modal.js"
+  import { openModal, initializeModal } from "@scripts/modal.js"
 
   document.addEventListener("DOMContentLoaded", () => {
     initWaveText()
