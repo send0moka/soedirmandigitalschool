@@ -87,20 +87,16 @@ import Silabus_WD from "@components/Silabus_WD.astro"
   import { initWaveText } from "../scripts/waveText.js"
   
   function openModal(modal: HTMLElement) {
-    console.log("openModal called with:", modal);
     if (modal) {
       modal.classList.remove("hidden");
       document.body.style.overflow = "hidden";
-      console.log("Modal opened");
     }
   }
 
   function closeModal(modal: HTMLElement) {
     if (modal) {
-      modal.classList.add("hidden");
-      document.body.style.overflow = "";
-      // Reload halaman setelah modal ditutup
-      window.location.reload();
+      modal.classList.add("hidden")
+      document.body.style.overflow = ""
     }
   }
 
@@ -118,29 +114,20 @@ import Silabus_WD from "@components/Silabus_WD.astro"
     }
   }
 
-  function initializePage() {
-    console.log("Initializing page");
+  document.addEventListener("DOMContentLoaded", () => {
     initWaveText();
     initializeModal("daftarModal");
     const daftarBtn = document.getElementById("daftarBtn");
     const daftarModal = document.getElementById("daftarModal");
-    console.log("daftarBtn:", daftarBtn);
-    console.log("daftarModal:", daftarModal);
     if (daftarBtn && daftarModal) {
-      console.log("Adding click event listener to daftarBtn");
       daftarBtn.addEventListener("click", () => {
-        console.log("daftarBtn clicked");
         openModal(daftarModal);
       });
     }
-  }
+  });
 
-  // Run initialization on initial page load
-  document.addEventListener("DOMContentLoaded", initializePage);
-
-  // Run initialization after Astro swaps the content
-  document.addEventListener("astro:after-swap", initializePage);
-
-  // Additional event listener for Astro's page load event
-  document.addEventListener("astro:page-load", initializePage);
+  document.addEventListener("astro:after-swap", () => {
+    initWaveText()
+    initializeModal("daftarModal")
+  })
 </script>

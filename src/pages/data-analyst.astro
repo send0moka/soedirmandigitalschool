@@ -122,8 +122,8 @@ import Silabus_DA from "@components/Silabus_DA.astro"
     }
   }
 
-  function initializePage() {
-    console.log("Initializing page");
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOMContentLoaded event fired");
     initWaveText();
     initializeModal("daftarModal");
     const daftarBtn = document.getElementById("daftarBtn");
@@ -137,14 +137,10 @@ import Silabus_DA from "@components/Silabus_DA.astro"
         openModal(daftarModal);
       });
     }
-  }
+  });
 
-  // Run initialization on initial page load
-  document.addEventListener("DOMContentLoaded", initializePage);
-
-  // Run initialization after Astro swaps the content
-  document.addEventListener("astro:after-swap", initializePage);
-
-  // Additional event listener for Astro's page load event
-  document.addEventListener("astro:page-load", initializePage);
+  document.addEventListener("astro:after-swap", () => {
+    initWaveText()
+    initializeModal("daftarModal")
+  })
 </script>
