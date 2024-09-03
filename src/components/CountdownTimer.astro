@@ -55,7 +55,7 @@ const { targetDate } = Astro.props
 
       requestAnimationFrame(updateCountdown);
     } else {
-      countdownTimer.innerHTML = "<p class='text-lg font-bold'>Waktu telah habis!</p>";
+      countdownTimer.innerHTML = "<p data-aos='fade-up' data-aos-delay='1500' class='text-xl font-bold bg-[#fcedd8] border-2 border-hitam rounded-md p-2'>Waktu telah habis!</p>";
     }
   }
 
